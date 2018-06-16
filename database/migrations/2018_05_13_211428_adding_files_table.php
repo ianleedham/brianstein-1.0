@@ -18,6 +18,8 @@ class AddingFilesTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('type');
+            $table->string('displayname');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

@@ -19,7 +19,8 @@ class MakeUserRoleTable extends Migration
             $table->integer('user_id');
             $table->integer('role_id');
 
-        });    }
+        });
+    }
 
     /**
      * Reverse the migrations.

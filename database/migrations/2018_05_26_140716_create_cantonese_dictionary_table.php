@@ -13,8 +13,16 @@ class AddUserIdToWords extends Migration
      */
     public function up()
     {
-        Schema::table('Cantonese', function ($table){
-            $table->integer('user_id');
+        Schema::create('Cantonese', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->string('english');
+            $table->string('jyutping');
+            $table->string('cantonese');
+            $table->integer('soundAddress');
+            $table->integer('type');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 
