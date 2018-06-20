@@ -30,5 +30,7 @@ class AddRecordingsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('recordings');    }
+        Schema::dropIfExists('recordings');
+
+    }
 }

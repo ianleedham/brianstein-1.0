@@ -4,57 +4,58 @@
 
 
 
-        <div class="row">
-            <div class="col-md-8 col-sm-7">
-                <h1  class="page-header text-center">The Cantonese Dictionary</h1>
-            </div>
-            <div class="col-md-2 col-sm-3 text-center" style="padding-top: 10px">
-                <a class="btn btn-dark " href="/dictionary/create">Add Word</a>
-            </div>
+    <div class="row ">
+        <div class="col-md-12 col-sm-12">
+            <h1  class="page-header text-center">The Cantonese Dictionary <br />
+            </h1>
         </div>
-        <div class="text-center">
+    </div>
+
+    <div class="app-info">
+        <div class="row mob-app-info mob-app-info-one">
             <p>
-                This dictionary started out as a way for me to combine learning cantonese with mobile application development.
-            </p>
-            <p>
-                The app It self which can be seen below has a nav-bar and side panel which when a page is chosen it shows the requested fragment. In each fragment a different list of cantonese words is shown.
-            </p>
-            <p>
-                The list is populated by a sqlite database which in turn is populated by a mysql database on first install.
-            </p>
-            <p>
-                The mysql database is on this server and is accessed by an api. The put, post and delete requests can be accessed given the oauth key and the get requests are acceptableness without.
-            </p>
-            <p>
-                The each word in the list is in fact an object which gets populated with information acquired by an sql query. These word objects are then placed on the list by an adapter.
-            </p>
-            <p>
-                On this this page there is a similar setup with word objects being created by eloquent and placed in a table by a php for statement.
-            </p>
-            <p>
-                the sounds are played by fetching a local sound file and attaching it to a html audio tag
-            </p>
-            <p>
-                Words can only be added of edited if you are logged in.
-            </p>
+                <img  src="photos/6/Screenshot_20180615-133640.jpg">
+                <img  src="photos/6/Screenshot_20180615-133656.jpg">
+                    This dictionary started out as a way for me to combine learning cantonese with mobile application development.
+                    <br />
+                    The app It self which can be seen below has a nav-bar and side panel which when a page is chosen it shows the requested fragment. In each fragment a different list of cantonese words is shown.
+                    <br />
+                    The list is populated by a sqlite database which in turn is populated by a mysql database on first install.
+                </p>
         </div>
+        <div class="row mob-app-info mob-app-info-two">
+            <p>
+            <img src="photos/6/Screenshot_20180615-133702.jpg">
+                <img  src="photos/6/Screenshot_20180615-133711.jpg">
+                    The mysql database is on this server and is accessed by an api. The put, post and delete requests can be accessed given the oauth key and the get requests are acceptableness without.
+                    <br />
+                    The each word in the list is in fact an object which gets populated with information acquired by an sql query. These word objects are then placed on the list by an adapter.
+                    <br />
+                    <br />
+                    the sounds are played by fetching a local sound file and attaching it to a html audio tag
+                    <br />
+                    Words can only be added or edited if you are logged in.
+                </p>
+
+        </div>
+    </div>
 
 
 
 
 
-        <audio id="sound">
-            <source src='' type='audio/mp3'/>
-            Your browser does not support the audio element.
-        </audio>
+    <audio id="sound">
+        <source src='' type='audio/mp3'/>
+        Your browser does not support the audio element.
+    </audio>
 
 
-        <!--   [{"wordid":1,"english":"Heart","jyutping":"sam","cantonese":"\u5fc3","soundAddress":"sam.3gp","type":"1","syncsts":0}-->
-        <div class="table-responsive">
-            <table class="table table-hover ">
-                <thead>
-                <tr>
-                    <th>@if ($sortby == 'english' && $order == 'asc') {{
+    <!--   [{"wordid":1,"english":"Heart","jyutping":"sam","cantonese":"\u5fc3","soundAddress":"sam.3gp","type":"1","syncsts":0}-->
+    <div class="table-responsive">
+        <table class="table table-hover ">
+            <thead>
+            <tr>
+                <th>@if ($sortby == 'english' && $order == 'asc') {{
 	                             link_to_action('DictionaryController@index', 'English',
 	                                array('sortby' => 'english', 'order' => 'desc')
 	                            )
@@ -81,7 +82,8 @@
 	                            )
 	                        )
 	                    }}
-                        @endif</th>
+                        @endif
+
                     <th>@if ($sortby == 'jyutping' && $order == 'asc') {{
 	                             link_to_action('DictionaryController@index', 'Jyutping',
 	                                array('sortby' => 'jyutping', 'order' => 'desc')
@@ -96,8 +98,11 @@
 	                        )
 	                    }}
                         @endif</th>
-                    <th> </th>
-                </tr>
+                <th>
+                    <div class="col-md-2 col-sm-3 text-center" style="padding-top: 10px">
+                        <a class="btn btn-dark " href="/dictionary/create">Add Word</a>
+                    </div>
+                </th>                </tr>
                 </thead>
                 <tbody>
 

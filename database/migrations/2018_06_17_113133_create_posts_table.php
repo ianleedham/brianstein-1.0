@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCantoneseDictionaryTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateCantoneseDictionaryTable extends Migration
      */
     public function up()
     {
-        Schema::create('Cantonese', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('english');
-            $table->string('jyutping');
-            $table->string('cantonese');
-            $table->integer('soundAddress');
-            $table->integer('type');
-            $table->rememberToken();
+            $table->string('title');
+            $table->mediumText('body');
+            $table->integer('user_id');
+            $table->string('cover_image');
         });
     }
 
@@ -32,7 +30,6 @@ class CreateCantoneseDictionaryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Cantonese');
-
+        Schema::dropIfExists('posts');
     }
 }

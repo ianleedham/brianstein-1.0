@@ -9,8 +9,6 @@
             authentication system, the migrations for databases and the middle ware access controls.
             On the navigation bar you will find a selection of projects and functions available on the website
             and the languages protocols implemented in them.</p>
-        <p>You can login with: </p>
-        <h3>Username: guest@brianstein.co.uk </h3>
-        <h3>Password: guest1</h3>
+        <h4>Please feel free to login to see the rest of the website</h4>
     </div>
 @endsection

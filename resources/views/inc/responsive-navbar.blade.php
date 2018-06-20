@@ -10,16 +10,13 @@
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item {{ Request::segment(1) === 'about' ? 'active' : null }}">
-                <a class="nav-link" href="/about">About</a>
-            </li>
-            <li class="nav-item {{ Request::segment(1) === 'projects' ? 'active' : null }}">
-                <a class="nav-link" href="/projects">Projects</a>
+                <a class="nav-link" href="{{ route('about') }}">About</a>
             </li>
             <li class="nav-item {{ Request::segment(1) === 'posts' ? 'active' : null }}">
-                <a class="nav-link" href="/posts">Blog</a>
+                <a class="nav-link" href="{{ route('posts.index') }}">Blog</a>
             </li>
             <li class="nav-item {{ Request::segment(1) === 'dictionary' ? 'active' : null }}">
-                <a class="nav-link" href="/dictionary">Dictionary</a>
+                <a class="nav-link" href="{{ route('dictionary.index') }}">Dictionary</a>
             </li>
             @guest
                 @else
@@ -35,7 +32,7 @@
                         <a class="nav-link" href={{route('media.index')}}>Personal Cloud Server</a>
                     </li>
                     <li class="nav-item {{ Request::segment(1) === 'admin' ? 'active' : null }}">
-                        <a class="nav-link" href="/admin">Admin</a>
+                        <a class="nav-link" href="{{ route('admin') }}">Admin</a>
                     </li>
 
                 @endif
@@ -51,7 +48,7 @@
             <!-- Authentication Links -->
             @guest
                 <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-            <!--<li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>-->
+            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
             @else
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

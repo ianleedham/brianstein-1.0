@@ -16,13 +16,13 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'PagesController@index');
 
-Route::get('/about', 'PagesController@about');
+Route::get('/about', 'PagesController@about')->name('about');
 
 Route::get('/projects', 'PagesController@services');
 
-Route::get('/admin/guest', 'PagesController@guestAdmin');
+Route::get('/admin/guest', 'PagesController@guestAdmin')->name('admin-guest');
 
-Route::get('vue-dictionary', 'DictionaryController@vue');
+Route::get('vue-dictionary', 'DictionaryController@vue')->name('vue-dictionary');
 
 Route::resource('dictionary', 'DictionaryController');
 
@@ -30,11 +30,11 @@ Route::resource('posts', 'PostsController');
 
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('files/{file} ',  'FilesController@download');
 
-Route::get('media/guest',  'FilesController@GuestPMS');
+Route::get('media/guest',  'FilesController@GuestPMS')->name('media-guest');
 
 Route::resource('media', 'FilesController');
 
