@@ -67,3 +67,5 @@ Route::post('/admin/assign-roles',[
 Route::post('/recording', ['as' => 'post.recording', 'uses' => 'RecordingController@postRecording']);
 
 Route::get('/recording/{id}', ['as' => 'get.recording', 'uses' => 'RecordingController@getRecording']);
+
+Route::post('/send', 'EmailController@send');
