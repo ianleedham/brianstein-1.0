@@ -6,6 +6,10 @@
     RewriteEngine On
     RewriteBase /
 
+#redirect to https
+RewriteCond %{HTTP_HOST} !^www\.brianstein\.co.uk$ [NC]
+RewriteRule ^(.*)$ https://www.brianstein.co.uk/$1 [R=301,L]
+
     # Handle Authorization Header
     RewriteCond %{HTTPS:Authorization} .
     RewriteRule .* - [E=HTTPS_AUTHORIZATION:%{HTTPS:Authorization}]
