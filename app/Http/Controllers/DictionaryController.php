@@ -34,17 +34,17 @@ class DictionaryController extends Controller
         //$posts = Post::orderBy('title','desc')->get();
         //$posts = Post::orderBy('created_at','desc')->paginate(10);
 
-	    $sortby = Input::get('sortby');
+	    /*$sortby = Input::get('sortby');
 	    $order = Input::get('order');
 
 	    if ($sortby && $order) {
             $dictionary = Word::orderBy($sortby, $order)->paginate(20);
 	    } else {
             $dictionary = Word::orderBy('created_at','desc')->paginate(20);
-	    }
+	    }*/
 
 	    //return View::make('posts.index', compact('posts', 'sortby', 'order'));
-        return view('dictionary.index')->with('dictionary', $dictionary) ->with('sortby', $sortby)->with( 'order', $order);
+        return view('dictionary.index');//->with('dictionary', $dictionary) //->with('sortby', $sortby)->with( 'order', $order);
     }
 
     /**
