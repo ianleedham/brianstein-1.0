@@ -6,7 +6,7 @@
     <img style="width:10%" src="/storage/cover_images/{{$post->cover_image}}">
     <br><br>
     <div>
-        {!!$post->body!!}
+        {!!$clean_body!!}
     </div>
     <hr>
     <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
