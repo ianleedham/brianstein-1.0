@@ -34,6 +34,10 @@ class User extends Authenticatable implements CanResetPassword
         return $this->hasMany('App\Post');
     }
 
+    public function posts_backup(){
+        return $this->hasMany('App\Post_backup');
+    }
+
     public function roles(){
         return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id')->withTimestamps();
     }

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Post_backup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
 use DB;
+use Mews\Purifier\Facades\Purifier;
 
 class PostsController extends Controller
 {
@@ -89,6 +91,14 @@ class PostsController extends Controller
         $post->cover_image = $fileNameToStore;
         $post->save();
 
+        // Create Post
+        $post_backup = new Post_backup;
+        $post_backup->title = $request->input('title');
+        $post_backup->body = $request->input('body');
+        $post_backup->user_id = auth()->user()->id;
+        $post_backup->cover_image = $fileNameToStore;
+        $post_backup->save();
+
         return redirect('/posts')->with('success', 'Post Created');
     }
 
@@ -100,10 +110,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $cleaned_body = clean(Post::find($id)->body);
-
+        $cleaned_body = Purifier::clean(Post::find($id)->body);
         $post = Post::find($id);
-        return view('posts.show')->with('post', $post);
+        return view('posts.show')->with('post', $post)->with('clean_body', $cleaned_body);
     }
 
     /**
