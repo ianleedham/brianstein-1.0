@@ -15,10 +15,11 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component(    'dic',                require('./components/ExampleComponent.vue')  );
+//Vue.component(    'dic',                require('./components/ExampleComponent.vue')  );
 Vue.component(     'dictionary-view', require('./components/dictionary.vue')  );
-Vue.component(      'recorder',           require('./components/record'));
-
+Vue.component(     'dictionary-word', require('./components/dictionary-word.vue')  );
+Vue.component(     'word-composer', require('./components/word-composer.vue')  );
+//Vue.component(      'recorder',           require('./components/record'));
 
 
 const app = new Vue({
@@ -35,12 +36,10 @@ const app = new Vue({
     },
     created(){
         axios.get('api/dictionary').then(response=>{
-            //this.words = response.data;
-            console.log(response.data);
-            console.log('created');
-
+            this.words = response.data;
         });
 
     }
 
 });
+//	id 	created_at 	updated_at 	english 	jyutping 	cantonese 	soundAddress 	type 	remember_token 	user_id

@@ -44,7 +44,7 @@
                                 <img style="width: 30px; height: 30px;" src="storage/images/image.png">
                             </td>
                             <td>{{$file->displayname}}</td>
-                            <td>Brian</td>
+                            <td>{{$file->user->name}}</td>
                             <td>{{$file->updated_at}}</td>
                             <td>
                                 <div class="dropdown">
@@ -59,14 +59,20 @@
                                     </button>
 
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">{!!Form::open(['action' => ['FilesController@destroy', $file->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                                        <li>
+                                            <a href="#">
+                                                {!!Form::open(['action' => ['FilesController@destroy', $file->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                                 {{Form::hidden('_method', 'DELETE')}}
                                                 {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                                                {!!Form::close()!!}</a></li>
+                                                {!!Form::close()!!}
+                                            </a>
+                                        </li>
 
-                                        <li>{!!Form::open(['action' => ['FilesController@download', $file->id], 'method' => 'GET'])!!}
+                                        <li>
+                                            {!!Form::open(['action' => ['FilesController@download', $file->id], 'method' => 'GET'])!!}
                                             {{Form::submit('Download', ['class' => 'btn btn-default'])}}
-                                            {!!Form::close()!!}</li>
+                                            {!!Form::close()!!}
+                                        </li>
                                     </ul>
                                 </div>
                             </td>
@@ -99,7 +105,7 @@
                                 <img style="width: 20px; height: 20px;" src="storage/images/document.png">
                             </td>
                             <td>{{$file->name}}</td>
-                            <td>{{$file->user}} </td>
+                            <td>{{$file->user->name}} </td>
                             <td>{{$file->updated_at}}</td>
 
                             <td>
@@ -151,7 +157,7 @@
                 <h2>Music</h2>
 
                 @foreach($files as $file)
-                    @if(($file ->type)=='mp3')
+                    @if(($file ->type)=='mp3'||($file ->type)=='m4a')
 
 
                         <tr>
@@ -159,7 +165,7 @@
                                 <img style="width: 20px; height: 20px;" src="storage/images/document.png">
                             </td>
                             <td>{{$file->name}}</td>
-                            <td>{{$file->user}} </td>
+                            <td>{{$file->user->name}} </td>
                             <td>{{$file->updated_at}}</td>
 
                             <td>
@@ -180,8 +186,9 @@
                                                 {{Form::hidden('_method', 'DELETE')}}
                                                 {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
                                                 {!!Form::close()!!}</a></li>
-                                        <li><a href="#">Download</a></li>
-                                    </ul>
+                                        <li>{!!Form::open(['action' => ['FilesController@download', $file->id], 'method' => 'GET'])!!}
+                                            {{Form::submit('Download', ['class' => 'btn '])}}
+                                            {!!Form::close()!!}</li>                                    </ul>
                                 </div>
                             </td>
                         </tr>

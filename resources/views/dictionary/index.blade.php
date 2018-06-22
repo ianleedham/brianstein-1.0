@@ -34,11 +34,11 @@
         <div class="row mob-app-info mob-app-info-two">
 
             <div class="col-lg-2 no-pad">
-                <img class="img-fluid" src="photos/6/Screenshot_20180615-133702.jpg">
+                <img class="img-fluid" style="margin-top: 20px; border: black; border-width: 2px " src="photos/6/Screenshot_20180615-133702.jpg">
             </div>
             <div class="col-lg-2 no-pad">
 
-                <img  class="img-fluid" src="photos/6/Screenshot_20180615-133711.jpg">
+                <img  class="img-fluid" style="margin-top: 20px; border: black; border-width: 2px"  src="photos/6/Screenshot_20180615-133711.jpg">
             </div>
             <div class="col-lg-8">
                 <p>

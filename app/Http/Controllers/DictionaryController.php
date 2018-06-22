@@ -78,7 +78,6 @@ class DictionaryController extends Controller
         $word->jyutping = $request->input('jyutping');
         $word->soundAddress = 'no-soundaddress';
         $word->user_id = auth()->user()->id;
-        $word->syncsts = 0;
         $word->save();
 
         return redirect('/dictionary')->with('success', 'Word Created');
@@ -178,6 +177,8 @@ class DictionaryController extends Controller
 
     public function vue(){
         if((Auth::user()->hasRole("Admin"))){
-            return view('vue.dictionary');}
+            $dictionary = Word::orderBy('created_at','desc')->paginate(20);
+            return view('vue.dictionary')->with('dictionary', $dictionary);
+        }
     }
 }
