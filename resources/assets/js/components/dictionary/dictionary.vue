@@ -25,10 +25,12 @@
                 </thead>
                 <tbody>
 
-                <dictionary-word v-for="word in orderedWords" v-bind:word = "word" :key="word.id" ></dictionary-word>
+                <Word v-for="word in orderedWords" v-bind:word = "word" :key="word.id" ></Word>
 
                 </tbody>
             </table>
+            <pagination :meta="meta" v-on:pagination:switched="getwords"></pagination>
+
         </div>
 
 
@@ -36,13 +38,23 @@
     </div>
 </template>
 
+
 <script>
+    import Word from './partials/dictionary-word.vue'
+    import WordComposer from './partials/word-composer.vue'
+    import Pagination from '../pagination/pagination.vue'
     export default {
-        props: ['words'],
+        components: {
+            Word,
+            WordComposer,
+            Pagination,
+        },
         data() {
             return {
                 sortby: 'english',
                 order: 'asc',
+                words: [],
+                meta: {},
             }
         },
         computed: {
@@ -54,6 +66,17 @@
             }
         },
         methods: {
+            getwords (page = 1) {
+                axios.get('/api/dictionary', {
+                    params: {
+                        page: page
+                    }
+                }).then((response) => {
+                    console.log(response)
+                    this.words = response.data.data;
+                    this.meta = response.data.meta;
+                })
+        },
             changeOrder: function (button) {
                 if (this.sortby===button){
                     if (this.order ==='asc'){
@@ -68,8 +91,13 @@
             },
             reverse: function() {
                 return this.orderedWords().reverse();
-            }
-        }
+            },
+
+        },
+        mounted () {
+            this.getwords()
+        },
+
 
     }
 

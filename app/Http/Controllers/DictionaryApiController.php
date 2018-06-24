@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\WordCollection;
 use Illuminate\Http\Request;
 use App\Word as word;
 use App\Http\Resources\Word as WordResource;
@@ -29,8 +30,9 @@ class DictionaryApiController extends Controller
         // alternatively you could go straight to the weight attribute
         $adobot->fish->weight;
         return App\Message::with('user')->get();*/
+        return new WordCollection(Word::paginate(10));
 
-        return Word::with('user')->get();
+        //return Word::with('user')->get();
     }
 
 

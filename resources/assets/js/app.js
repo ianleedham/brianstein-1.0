@@ -15,31 +15,9 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-//Vue.component(    'dic',                require('./components/ExampleComponent.vue')  );
-Vue.component(     'dictionary-view', require('./components/dictionary.vue')  );
-Vue.component(     'dictionary-word', require('./components/dictionary-word.vue')  );
-Vue.component(     'word-composer', require('./components/word-composer.vue')  );
-//Vue.component(      'recorder',           require('./components/record'));
+Vue.component(     'dictionary-view', require('./components/dictionary/dictionary.vue')  );
 
 
 const app = new Vue({
     el: '#app',
-    data:{
-        words: [],
-
-    },
-    methods:{
-        addMessage(message){
-            //addmessage to existing messages
-
-        }
-    },
-    created(){
-        axios.get('api/dictionary').then(response=>{
-            this.words = response.data;
-        });
-
-    }
-
 });
-//	id 	created_at 	updated_at 	english 	jyutping 	cantonese 	soundAddress 	type 	remember_token 	user_id
