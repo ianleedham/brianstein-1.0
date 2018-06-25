@@ -1,19 +1,19 @@
 <template lang="html">
     <div class="dictionary">
-        <div v-show="words.length===0" class="empty"><p>nothing here yet</p></div>
+        <div v-show="orderedWords.length===0" class="empty"><p>nothing here yet</p></div>
 
         <!--   [{"wordid":1,"english":"Heart","jyutping":"sam","cantonese":"\u5fc3","soundAddress":"sam.3gp","type":"1","syncsts":0}-->
         <div class="table-responsive">
             <table class="table table-hover ">
                 <thead>
                 <tr>
-                    <th class="btn" v-on:click="changeOrder('english')" ref="english_title">
-                        English
+                    <th v-on:click="changeOrder('english')" ref="english_title">
+                        <a href="#">English</a>
                     </th>
-                    <th class=""v-on:click="changeOrder('cantonese')" >
-                        Cantonese
+                    <th v-on:click="changeOrder('cantonese')" >
+                        <a>Cantonese</a>
                     </th>
-                    <th class="btn" v-on:click="changeOrder('jyutping')" >
+                    <th v-on:click="changeOrder('jyutping')" >
                         Jyutping
                     </th>
                     <th>
@@ -25,7 +25,7 @@
                 </thead>
                 <tbody>
 
-                <Word v-for="word in orderedWords" v-bind:word = "word" :key="word.id" ></Word>
+                <Word v-for="word in orderedWords" v-bind:word = "word" :key="word.id" v-on:word:deleted="getwords"></Word>
 
                 </tbody>
             </table>
@@ -62,14 +62,13 @@
                 if (this.order==='asc'){
                 return _.orderBy(this.words, this.sortby)
                 }else return _.orderBy(this.words, this.sortby).reverse()
-
             }
         },
         methods: {
             getwords (page = 1) {
                 axios.get('/api/dictionary', {
                     params: {
-                        page: page
+                        page: page,
                     }
                 }).then((response) => {
                     console.log(response)

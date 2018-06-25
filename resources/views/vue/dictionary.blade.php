@@ -53,6 +53,6 @@
                         </div>
                     </div>
 
-                    <dictionary-view :words ="words"></dictionary-view>
+                    <dictionary-view ></dictionary-view>
 
 @endsection

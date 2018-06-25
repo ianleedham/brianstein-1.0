@@ -40,9 +40,9 @@ Route::resource('media', 'FilesController');
 
 Route::get('/changepassword', 'ChangePasswordController@index');
 
-Route::get('/video', function (){return view('video');});
+//Route::get('/video', function (){return view('video');});
 
-Route::get('/audio', function (){return view('soundrecorder');});
+//Route::get('/audio', function (){return view('soundrecorder');});
 
 Route::post('/changepassword/submit', 'ChangePasswordController@postCredentials');
 

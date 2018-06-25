@@ -86,7 +86,9 @@
                         @endif</th>
                     <th>@if ($sortby == 'cantonese' && $order == 'asc') {{
 	                             link_to_action('DictionaryController@index', 'Cantonese',
-	                                array('sortby' => 'cantonese', 'order' => 'desc')
+	                                array(
+	                                'sortby' => 'cantonese',
+	                                 'order' => 'desc')
 	                            )
 	                        }}
                         @else {{
@@ -117,7 +119,8 @@
                     <div class="col-md-2 col-sm-3 text-center" style="padding-top: 10px">
                         <a class="btn btn-dark " href="/dictionary/create">Add Word</a>
                     </div>
-                </th>                </tr>
+                </th>
+            </tr>
                 </thead>
                 <tbody>
 
