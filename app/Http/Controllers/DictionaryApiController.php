@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Resources\WordCollection;
 use Illuminate\Http\Request;
 use App\Word as word;
-use App\Http\Resources\Word as WordResource;
+use App\Http\Resources\WordResource as WordResource;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 
 
@@ -14,26 +15,37 @@ class DictionaryApiController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return WordCollection
      */
     public function index()
     {
-/*        // find a bear named Adobot
-        $adobot = Bear::where('name', '=', 'Adobot')->first();
 
-        // get the fish that Adobot has
-        $fish = $adobot->fish;
+/*
+        $sortby = Input::get('sortby');
+        $order = Input::get('order');
 
-        // get the weight of the fish Adobot is going to eat
-        $fish->weight;
+        if ($sortby && $order) {
+            $dictionary = WordResource::orderBy($sortby, $order)->paginate(20);
+        } else {
+            $dictionary = WordResource::orderBy('created_at','desc')->paginate(20);
+        }
+        //return View::make('posts.index', compact('posts', 'sortby', 'order'));
+        return view('dictionary.index')->with('dictionary', $dictionary)
+            ->with('sortby', $sortby)->with( 'order', $order);*/
 
-        // alternatively you could go straight to the weight attribute
-        $adobot->fish->weight;
-        return App\Message::with('user')->get();*/
-        return new WordCollection(Word::paginate(10));
+        $sortby = Input::get('sortby');
+        $order = Input::get('order');
 
-        //return Word::with('user')->get();
-    }
+        Log::debug('sortby: '.$sortby.'order'. $order);
+
+        if ($sortby && $order) {
+            $dictionary = Word::with('user')->orderBy($sortby, $order)->paginate(10);
+        } else {
+            $dictionary = Word::with('user')->orderBy('created_at','desc')->paginate(10);
+        }
+
+        return new WordCollection($dictionary);
+        }
 
 
     /**

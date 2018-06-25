@@ -4,7 +4,7 @@
 
     <div class="row ">
         <div class="col-md-12 col-sm-12">
-            <h1  class="page-header text-center">The Cantonese Dictionary <br />
+            <h1  class="page-header text-center">The Cantonese Dictionary - Vue component<br />
             </h1>
         </div>
     </div>

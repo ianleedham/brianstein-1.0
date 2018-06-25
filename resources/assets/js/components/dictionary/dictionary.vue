@@ -1,20 +1,20 @@
 <template lang="html">
     <div class="dictionary">
-        <div v-show="orderedWords.length===0" class="empty"><p>nothing here yet</p></div>
+        <div v-show="words.length===0" class="empty"><p>nothing here yet</p></div>
 
         <!--   [{"wordid":1,"english":"Heart","jyutping":"sam","cantonese":"\u5fc3","soundAddress":"sam.3gp","type":"1","syncsts":0}-->
         <div class="table-responsive">
             <table class="table table-hover ">
                 <thead>
                 <tr>
-                    <th v-on:click="changeOrder('english')" ref="english_title">
+                    <th v-on:click.prevent="changeOrder('english')" ref="english_title">
                         <a href="#">English</a>
                     </th>
-                    <th v-on:click="changeOrder('cantonese')" >
-                        <a>Cantonese</a>
+                    <th v-on:click.prevent="changeOrder('cantonese')" >
+                        <a href="#">Cantonese</a>
                     </th>
-                    <th v-on:click="changeOrder('jyutping')" >
-                        Jyutping
+                    <th v-on:click.prevent="changeOrder('jyutping')" >
+                        <a href="#">Jyutping</a>
                     </th>
                     <th>
                         <div class="col-md-1 col-sm-1 text-center" style="padding-top: 10px">
@@ -25,16 +25,13 @@
                 </thead>
                 <tbody>
 
-                <Word v-for="word in orderedWords" v-bind:word = "word" :key="word.id" v-on:word:deleted="getwords"></Word>
+                <Word v-for="word in words" v-bind:word = "word" :key="word.id" v-on:word:deleted="getwords"></Word>
 
                 </tbody>
             </table>
             <pagination :meta="meta" v-on:pagination:switched="getwords"></pagination>
 
         </div>
-
-
-
     </div>
 </template>
 
@@ -58,17 +55,14 @@
             }
         },
         computed: {
-            orderedWords: function () {
-                if (this.order==='asc'){
-                return _.orderBy(this.words, this.sortby)
-                }else return _.orderBy(this.words, this.sortby).reverse()
-            }
         },
         methods: {
             getwords (page = 1) {
                 axios.get('/api/dictionary', {
                     params: {
                         page: page,
+                        sortby: this.sortby,
+                        order: this.order,
                     }
                 }).then((response) => {
                     console.log(response)
@@ -87,11 +81,8 @@
                     this.sortby = button;
                     this.order = 'asc'
                 }
+                this.getwords(1)
             },
-            reverse: function() {
-                return this.orderedWords().reverse();
-            },
-
         },
         mounted () {
             this.getwords()

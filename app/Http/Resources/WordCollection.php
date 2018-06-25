@@ -14,6 +14,6 @@ class WordCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);//add user relationship
+        return parent::toArray($request);// order the words
     }
 }

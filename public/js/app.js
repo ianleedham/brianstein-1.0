@@ -47742,9 +47742,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 
@@ -47764,13 +47761,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
-    computed: {
-        orderedWords: function orderedWords() {
-            if (this.order === 'asc') {
-                return _.orderBy(this.words, this.sortby);
-            } else return _.orderBy(this.words, this.sortby).reverse();
-        }
-    },
+    computed: {},
     methods: {
         getwords: function getwords() {
             var _this = this;
@@ -47779,7 +47770,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.get('/api/dictionary', {
                 params: {
-                    page: page
+                    page: page,
+                    sortby: this.sortby,
+                    order: this.order
                 }
             }).then(function (response) {
                 console.log(response);
@@ -47799,11 +47792,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.sortby = button;
                 this.order = 'asc';
             }
-        },
-        reverse: function reverse() {
-            return this.orderedWords().reverse();
+            this.getwords(1);
         }
-
     },
     mounted: function mounted() {
         this.getwords();
@@ -48424,8 +48414,8 @@ var render = function() {
           {
             name: "show",
             rawName: "v-show",
-            value: _vm.orderedWords.length === 0,
-            expression: "orderedWords.length===0"
+            value: _vm.words.length === 0,
+            expression: "words.length===0"
           }
         ],
         staticClass: "empty"
@@ -48446,6 +48436,7 @@ var render = function() {
                   ref: "english_title",
                   on: {
                     click: function($event) {
+                      $event.preventDefault()
                       _vm.changeOrder("english")
                     }
                   }
@@ -48458,11 +48449,12 @@ var render = function() {
                 {
                   on: {
                     click: function($event) {
+                      $event.preventDefault()
                       _vm.changeOrder("cantonese")
                     }
                   }
                 },
-                [_c("a", [_vm._v("Cantonese")])]
+                [_c("a", { attrs: { href: "#" } }, [_vm._v("Cantonese")])]
               ),
               _vm._v(" "),
               _c(
@@ -48470,11 +48462,12 @@ var render = function() {
                 {
                   on: {
                     click: function($event) {
+                      $event.preventDefault()
                       _vm.changeOrder("jyutping")
                     }
                   }
                 },
-                [_vm._v("\n                    Jyutping\n                ")]
+                [_c("a", { attrs: { href: "#" } }, [_vm._v("Jyutping")])]
               ),
               _vm._v(" "),
               _vm._m(0)
@@ -48483,7 +48476,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "tbody",
-            _vm._l(_vm.orderedWords, function(word) {
+            _vm._l(_vm.words, function(word) {
               return _c("Word", {
                 key: word.id,
                 attrs: { word: word },

@@ -15,8 +15,8 @@
             <li class="nav-item {{ Request::segment(1) === 'posts' ? 'active' : null }}">
                 <a class="nav-link" href="{{ route('posts.index') }}">Blog</a>
             </li>
-            <li class="nav-item {{ Request::segment(1) === 'dictionary' ? 'active' : null }}">
-                <a class="nav-link" href="{{ route('dictionary.index') }}">Dictionary</a>
+            <li class="nav-item {{ Request::segment(1) === 'vue-dictionary' ? 'active' : null }}">
+                <a class="nav-link" href="{{ route('vue-dictionary') }}">Dictionary</a>
             </li>
             @guest
                 @else

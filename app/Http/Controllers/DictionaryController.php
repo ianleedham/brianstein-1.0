@@ -71,7 +71,7 @@ class DictionaryController extends Controller
             'jyutping' => 'required'
         ]);
 
-        // Create Word
+        // Create WordResource
         $word = new Word;
         $word->english = $request->input('english');
         $word->cantonese = $request->input('cantonese');
@@ -80,7 +80,7 @@ class DictionaryController extends Controller
         $word->user_id = auth()->user()->id;
         $word->save();
 
-        return redirect('/dictionary')->with('success', 'Word Created');
+        return redirect('/dictionary')->with('success', 'WordResource Created');
     }
 
 
@@ -143,7 +143,7 @@ class DictionaryController extends Controller
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
         }
 
-        // Create Word
+        // Create WordResource
         $word = Word::find($id);
         $word->english = $request->input('english');
         $word->cantonese = $request->input('cantonese');
@@ -151,7 +151,7 @@ class DictionaryController extends Controller
         $word->user_id = auth()->user()->id;
         $word->save();
 
-        return redirect('/dictionary')->with('success', 'Word Updated');
+        return redirect('/vue-dictionary')->with('success', 'WordResource Updated');
     }
 
     /**
@@ -171,14 +171,13 @@ class DictionaryController extends Controller
             $word = Word::find($id);
 
             $word->delete();
-            return redirect('/dictionary')->with('success', 'Word Removed');
+            return redirect('/dictionary')->with('success', 'WordResource Removed');
         }
     }
 
     public function vue(){
-        if((Auth::user()->hasRole("Admin"))){
             $dictionary = Word::orderBy('created_at','desc')->paginate(20);
             return view('vue.dictionary')->with('dictionary', $dictionary);
-        }
+
     }
 }
