@@ -27,5 +27,18 @@
             @endforeach
             </tbody>
         </table>
+        <form action="{{ route('admin.assign') }}" method="post">
+            <select name="cars">
+                @foreach($users as $user)
+                    <option value="{{ $user->email }}">{{ $user->name }}</option>
+                @endforeach
+            </select>
+            <select name="cars">
+                <option value="role_user">user</option>
+                <option value="role_author">author</option>
+                <option value="role_admin">admin</option>
+            </select>
+            <button type="submit">Assign Role</button>
+        </form>
     </div>
 @endsection

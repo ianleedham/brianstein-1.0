@@ -47886,7 +47886,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n.dictionary-word {\n    padding: 1rem;\n}\n.chat-message > p {\n    margin-bottom: .5rem;\n}\n", ""]);
+exports.push([module.i, "\n.play-button {\n    max-width: 50px;\n}\n.chat-message > p {\n    margin-bottom: .5rem;\n}\n", ""]);
 
 // exports
 
@@ -47985,14 +47985,14 @@ var render = function() {
     _vm._v(" "),
     _c("td", [_vm._v(_vm._s(_vm.word.jyutping))]),
     _vm._v(" "),
-    _c("td", [
+    _c("td", { staticClass: "col-md-1" }, [
       _c("audio", {
         ref: "audioElm",
         attrs: { src: "/storage/sounds/" + _vm.word.soundAddress + ".mp3" }
       }),
       _vm._v(" "),
       _c("img", {
-        staticClass: "img-responsive btn play-button",
+        staticClass: "btn play-button",
         attrs: {
           src: "/storage/images/Play-Button-PNG-Picture.png",
           type: "button"

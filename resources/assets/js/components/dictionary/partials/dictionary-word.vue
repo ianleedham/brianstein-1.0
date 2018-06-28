@@ -4,9 +4,9 @@
             <td>{{word.english}}</td>
             <td>{{word.cantonese}}</td>
             <td>{{word.jyutping}}</td>
-            <td>
+            <td class="col-md-1" >
                 <audio ref="audioElm" :src="'/storage/sounds/' + word.soundAddress + '.mp3'"></audio>
-                <img v-on:click="play"class="img-responsive btn play-button"  src="/storage/images/Play-Button-PNG-Picture.png"  type="button"/>
+                <img v-on:click="play"class="btn play-button"  src="/storage/images/Play-Button-PNG-Picture.png"  type="button"/>
             </td>
 
             <td>
@@ -71,8 +71,8 @@
 </script>
 
 <style lang="css">
-    .dictionary-word {
-        padding: 1rem;
+    .play-button {
+        max-width: 50px;
     }
 
     .chat-message > p {

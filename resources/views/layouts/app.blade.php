@@ -19,19 +19,13 @@
             .my-content {
                 padding: 4rem
             }
-            .play-button{
-                max-width:64px;
-                max-height:64px;
-            }
+
         }
         @media only screen and (max-width: 1000px) {
             .my-content {
                 padding: 0.5rem
             }
-            .play-button{
-                max-width:32px;
-                max-height:32px;
-            }
+
         }
     </style>
 

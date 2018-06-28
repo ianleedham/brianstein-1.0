@@ -6,6 +6,7 @@ use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class AppController extends Controller
 {
@@ -27,6 +28,7 @@ class AppController extends Controller
 
     public function postAdminAssignRoles(Request $request)
     {
+        Log::debug('assign role: '. $request);
         $user = User::where('email', $request['email'])->first();
         $user->roles()->detach();
         if ($request['role_user']) {

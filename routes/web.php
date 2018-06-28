@@ -60,8 +60,6 @@ Route::get('/admin',[
 Route::post('/admin/assign-roles',[
     'uses' => 'AppController@postAdminAssignRoles',
     'as'=>'admin.assign',
-    'middleware' => 'roles',
-    'roles' => ['Admin']
 ]);
 
 Route::post('/recording', ['as' => 'post.recording', 'uses' => 'RecordingController@postRecording']);

@@ -10,15 +10,15 @@
     </div>
 
                     <div class="app-info">
-                        <div class="row mob-app-info mob-app-info-one">
-                            <div class="col-lg-2 no-pad">
+                        <div class="row mob-app-info mob-app-info-one" style="padding: 1rem">
+                            <div class="col-lg-2 col-md-2 col-sm-6 no-pad">
                                 <img  class="img-fluid" src="photos/6/Screenshot_20180615-133640.jpg">
                             </div>
-                            <div class="col-lg-2 no-pad">
+                            <div class="col-lg-2 col-md-2 col-sm-6 no-pad">
                                 <img  class="img-fluid" src="photos/6/Screenshot_20180615-133656.jpg">
                             </div>
 
-                            <div class="col-lg-8">
+                            <div class="col-lg-8 col-md-8 col-sm-12 ">
                                 <p>
                                     This dictionary started out as a way for me to combine learning cantonese with mobile application development.
                                     <br />
@@ -28,16 +28,16 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="row mob-app-info mob-app-info-two">
+                        <div class="row mob-app-info mob-app-info-two" style="padding: 1rem">
 
-                            <div class="col-lg-2 no-pad">
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 no-pad">
                                 <img class="img-fluid" src="photos/6/Screenshot_20180615-133702.jpg">
                             </div>
-                            <div class="col-lg-2 no-pad">
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 no-pad">
 
                                 <img  class="img-fluid" src="photos/6/Screenshot_20180615-133711.jpg">
                             </div>
-                            <div class="col-lg-8">
+                            <div class="col-lg-8 col-md-8 col-sm-12">
                                 <p>
                                     The mysql database is on this server and is accessed by an api. The put, post and delete requests can be accessed given the oauth key and the get requests are acceptableness without.
                                     <br />
@@ -51,8 +51,12 @@
                             </div>
 
                         </div>
+
+                        <h3>
+                            Edit: this dictionary is now displayed as a vue component.
+                        </h3>
                     </div>
 
-                    <dictionary-view ></dictionary-view>
+    <dictionary-view ></dictionary-view>
 
 @endsection
