@@ -33,9 +33,9 @@
                     <li class="nav-item {{ Request::segment(1) === 'media' ? 'active' : null }}">
                         <a class="nav-link" href={{route('media.index')}}>Personal Cloud Server</a>
                     </li>
-                    <li class="nav-item {{ Request::segment(1) === 'admin' ? 'active' : null }}">
+{{--                    <li class="nav-item {{ Request::segment(1) === 'admin' ? 'active' : null }}">
                         <a class="nav-link" href="{{ route('admin') }}">Admin</a>
-                    </li>
+                    </li>--}}
 
                 {{--@endif--}}
                 @endguest
