@@ -59,7 +59,7 @@ class filesController extends Controller
     {
         $this->validate($request, [
 
-            'file' => 'file|required|max:199900',
+            'file' => 'file|required|max:199900|mimes:mp4,mov,ogg,mp3,ogg,doc,docx,jpg,jpeg,png,xml,xlsx,db,pptx,bmp',
             'description'=>'nullable',
             'name'=>'required'
         ]);
