@@ -103,14 +103,14 @@ class DictionaryController extends Controller
      */
     public function edit($id)
     {
-        // Check if user is admin
-        if(!(Auth::user()->hasRole("Admin"))) {
+        // Check if user is admin todo add checks
+   /*     if(!(Auth::user()->hasRole("Admin"))) {
 
             return redirect('/posts')->with('error', 'Unauthorized Page');
-        }else {
-            $word = Word::find($id);
+       }else {*/
+        $word = Word::find($id);
             return view('dictionary.edit')->with('word', $word);
-        }
+
 
     }
 
@@ -164,15 +164,15 @@ class DictionaryController extends Controller
     {
 
         // Check if user is admin
-        if(!(Auth::user()->hasRole("Admin"))) {
+        //if(!(Auth::user()->hasRole("Admin"))) {
 
-            return redirect('/posts')->with('error', 'Unauthorized Page');
-        }else {
+       //     return redirect('/posts')->with('error', 'Unauthorized Page');
+       // }else {
             $word = Word::find($id);
 
             $word->delete();
             return redirect('/dictionary')->with('success', 'WordResource Removed');
-        }
+       // }
     }
 
     public function vue(){

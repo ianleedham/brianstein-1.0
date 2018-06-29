@@ -146,7 +146,7 @@ class filesController extends Controller
 
             $file->delete();
             return redirect('/files')->with('success', 'File Removed');
-        
+
 
     }
 
@@ -155,14 +155,14 @@ class filesController extends Controller
     {
 
         // Check if user is admin
-        if(!(Auth::user()->hasRole("Admin"))) {
+      //  if(!(Auth::user()->hasRole("Admin"))) {
 
-            return redirect('/')->with('error', 'Unauthorized Page');
-        }else {
+       //     return redirect('/')->with('error', 'Unauthorized Page');
+       // }else {
             $headers = array(            'Content-Type: application/octet-stream',    );
             $file = File::find($id);
             return response()->download('storage/files/'.$file->name, $file->name, $headers);
-        }
+        //}
 
 
     }
