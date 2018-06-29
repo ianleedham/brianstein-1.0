@@ -28,15 +28,12 @@ class filesController extends Controller
      */
     public function index()
     {
-        if(!(Auth::user()->hasRole("Admin"))) {
-
-            return redirect('/posts')->with('error', 'Unauthorized Page');
-        }else {
+        //todo add checks
 
 
             $files = file::orderBy('created_at','desc')->paginate(10);
             return view('media.index')->with('files', $files);
-        }
+
 
     }
 
@@ -140,11 +137,8 @@ class filesController extends Controller
      */
     public function destroy($id)
     {
-        // Check if user is admin
-        if(!(Auth::user()->hasRole("Admin"))) {
+        //todo add checks
 
-            return redirect('/posts')->with('error', 'Unauthorized Page');
-        }else {
             $file = File::find($id);
 
             // Delete file
@@ -152,7 +146,7 @@ class filesController extends Controller
 
             $file->delete();
             return redirect('/files')->with('success', 'File Removed');
-        }
+        
 
     }
 

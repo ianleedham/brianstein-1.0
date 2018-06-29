@@ -67,3 +67,7 @@ Route::post('/recording', ['as' => 'post.recording', 'uses' => 'RecordingControl
 Route::get('/recording/{id}', ['as' => 'get.recording', 'uses' => 'RecordingController@getRecording']);
 
 Route::post('/send', 'EmailController@send');
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

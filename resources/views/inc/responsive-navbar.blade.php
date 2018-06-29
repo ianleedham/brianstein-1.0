@@ -20,14 +20,16 @@
             </li>
             @guest
                 @else
-                @if(!(Auth::user()->hasRole("Admin")))
+                {{--}}todo add checks--}}
+
+                {{--@if(!(Auth::user()->hasRole("Admin")))
                 <li class="nav-item {{ Request::segment(1) === 'media' ? 'active' : null }}">
                     <a class="nav-link" href="/media/guest ">Personal Cloud Server</a>
                 </li>
                 <li class="nav-item {{ Request::segment(1) === 'admin' ? 'active' : null }}">
                     <a class="nav-link" href="/admin/guest">Admin</a>
                 </li>
-                @else
+                @else--}}
                     <li class="nav-item {{ Request::segment(1) === 'media' ? 'active' : null }}">
                         <a class="nav-link" href={{route('media.index')}}>Personal Cloud Server</a>
                     </li>
@@ -35,7 +37,7 @@
                         <a class="nav-link" href="{{ route('admin') }}">Admin</a>
                     </li>
 
-                @endif
+                {{--@endif--}}
                 @endguest
 
         </ul>
@@ -57,10 +59,10 @@
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/dashboard">Dashboard</a>
-                        @if(!(Auth::user()->hasRole("User")))
+                        {{--@if(!(Auth::user()->hasRole("User")))--}}
                         <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                         <a class="dropdown-item" href='/changepassword'>ChangePassword</a>
-                        @endif
+                        {{--@endif--}}
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
