@@ -62,9 +62,11 @@ class filesController extends Controller
         $this->validate($request, [
 
             'file' => 'file|required|max:199900',
-            'description'=>'nullable',
+            'description'=>'required',
             'name'=>'required'
         ]);
+        Log::error('Error with files controller@store: at start');
+
         $voyager = new Voyager();
         try {
             $canAddPost = $voyager->can('add_files');
@@ -72,6 +74,7 @@ class filesController extends Controller
             Log::error('Error with files controller@store: '.$e);
             return redirect('/media')->with('error', 'You do not have permission to do that');
         }
+        Log::error('Error with files controller@store: before if');
 
         // Handle File Upload
         if($canAddPost) {
@@ -161,6 +164,7 @@ class filesController extends Controller
         };
 
         if ($canDeleteFile||$ownsFile) {
+            Log::error('should be success ');
 
             // Delete file
             Storage::delete('public/files/' . $file->name);

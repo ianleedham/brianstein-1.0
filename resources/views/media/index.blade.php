@@ -121,8 +121,7 @@
                                     </button>
 
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">Rename</a></li>
-                                        <li>            {!!Form::open(['action' => ['FilesController@destroy', $file->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                                        <li>{!!Form::open(['action' => ['FilesController@destroy', $file->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                             {{Form::hidden('_method', 'DELETE')}}
                                             {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
                                             {!!Form::close()!!}</li>

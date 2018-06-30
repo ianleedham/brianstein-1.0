@@ -34,7 +34,7 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('files/{file} ',  'FilesController@download');
 
-Route::get('media/guest',  'FilesController@GuestPMS')->name('media-guest');
+//Route::get('media/guest',  'FilesController@GuestPMS')->name('media-guest');
 
 Route::resource('media', 'FilesController');
 
