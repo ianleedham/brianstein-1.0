@@ -59,7 +59,7 @@ class filesController extends Controller
     {
         $this->validate($request, [
 
-            'file' => 'file|required|max:199900|mimes:mp4,mov,ogg,mp3,ogg,doc,docx,jpg,jpeg,png,xml,xlsx,db,pptx,bmp',
+            'file' => 'file|required|max:199900',
             'description'=>'nullable',
             'name'=>'required'
         ]);
@@ -159,10 +159,12 @@ class filesController extends Controller
 
        //     return redirect('/')->with('error', 'Unauthorized Page');
        // }else {
-            $headers = array(            'Content-Type: application/octet-stream',    );
+       //     $headers = array(            'Content-Type: application/octet-stream',    );
             $file = File::find($id);
-            return response()->download('storage/files/'.$file->name, $file->name, $headers);
+           // return response()->download('storage/files/'.$file->name, $file->name, $headers);
         //}
+        $file= "uploads/files/heng_kaknika.docx";
+        return response()->download('storage/files/'.$file->name, '$file->name');
 
 
     }
