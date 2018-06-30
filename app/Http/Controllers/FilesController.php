@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use DB;
+use TCG\Voyager\Voyager;
 
 
 class filesController extends Controller
@@ -63,9 +65,16 @@ class filesController extends Controller
             'description'=>'nullable',
             'name'=>'required'
         ]);
+        $voyager = new Voyager();
+        try {
+            $canAddPost = $voyager->can('add_files');
+        } catch (\Exception $e) {
+            Log::error('Error with files controller: '.$e);
+            return redirect('/media')->with('error', 'You don not have permission to do that');
+        }
 
         // Handle File Upload
-
+        if($canAddPost) {
             // Get filename with the extension
             $filenameWithExt = $request->file('file')->getClientOriginalName();
             // Get just filename
@@ -73,26 +82,23 @@ class filesController extends Controller
             // Get just ext
             $extension = $request->file('file')->getClientOriginalExtension();
             // Filename to store
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
 
             // Upload Image
             $path = $request->file('file')->storeAs('public/files', $fileNameToStore);
 
 
+            // Create FileDetails in database
+            $file = new File();
+            $file->name = $fileNameToStore;
+            $file->displayname = $request->input('name');
+            $file->description = '';//$request->input('description');
+            $file->user_id = auth()->user()->id;
+            $file->type = $extension;
+            $file->save();
 
-
-
-        // Create FileDetails in database
-        $file = new File();
-        $file ->name = $fileNameToStore;
-        $file ->displayname = $request->input('name');
-        $file ->description = '';//$request->input('description');
-        $file->user_id = auth()->user()->id;
-        $file ->type = $extension;
-        $file ->save();
-
-        return redirect('/media')->with('success', 'File Uploaded');
-
+            return redirect('/media')->with('success', 'File Uploaded');
+        }
     }
 
     /**
@@ -137,36 +143,59 @@ class filesController extends Controller
      */
     public function destroy($id)
     {
-        //todo add checks
+        $file = File::find($id);
 
-            $file = File::find($id);
+
+        $voyager = new Voyager();
+        try {
+            $canDeleteFile = $voyager->can('delete_files');
+        } catch (\Exception $e) {
+            Log::error('Error with files controller: ' . $e);
+            return redirect('/media')->with('error', 'You don not have permission to do that');
+        }
+
+        $ownsFile = function ($file){
+            if(auth()->user()== $file->owner){return true;}else return false;
+        };
+
+        if ($canDeleteFile||$ownsFile) {
 
             // Delete file
-            Storage::delete('public/files/'.$file->name);
+            Storage::delete('public/files/' . $file->name);
 
             $file->delete();
             return redirect('/files')->with('success', 'File Removed');
 
 
+        }else{
+            return redirect('/media')->with('error', 'You don not have permission to do that');
+        }
     }
-
 
     public function download($id)
     {
-
-        // Check if user is admin
-      //  if(!(Auth::user()->hasRole("Admin"))) {
-
-       //     return redirect('/')->with('error', 'Unauthorized Page');
-       // }else {
-       //     $headers = array(            'Content-Type: application/octet-stream',    );
-            $file = File::find($id);
-           // return response()->download('storage/files/'.$file->name, $file->name, $headers);
-        //}
-        $file= "uploads/files/heng_kaknika.docx";
-        return response()->download('storage/files/'.$file->name, '$file->name');
+        $file = File::find($id);
 
 
+        $voyager = new Voyager();
+        try {
+            $canDeleteFile = $voyager->can('delete_files');
+        } catch (\Exception $e) {
+            Log::error('Error with files controller: ' . $e);
+            return redirect('/media')->with('error', 'You don not have permission to do that');
+        }
+
+        $ownsFile = function ($file){
+            if(auth()->user()== $file->owner){return true;}else return false;
+        };
+
+        if ($canDeleteFile||$ownsFile) {
+            $headers = array('Content-Type: application/octet-stream');
+            return response()->download('storage/files/' . $file->name, $file->name);
+
+        }else{
+            return redirect('/media')->with('error', 'You don not have permission to do that');
+        }
     }
 
 

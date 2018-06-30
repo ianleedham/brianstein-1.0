@@ -51,7 +51,7 @@ Auth::routes();
 
 
 
-Route::get('/admin',[
+/*Route::get('/admin',[
     'uses' => 'AppController@getAdminPage',
     'as'=>'admin',
     'middleware' => 'roles',
@@ -60,7 +60,7 @@ Route::get('/admin',[
 Route::post('/admin/assign-roles',[
     'uses' => 'AppController@postAdminAssignRoles',
     'as'=>'admin.assign',
-]);
+]);*/
 
 Route::post('/recording', ['as' => 'post.recording', 'uses' => 'RecordingController@postRecording']);
 
