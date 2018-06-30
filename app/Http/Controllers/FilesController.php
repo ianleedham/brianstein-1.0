@@ -47,7 +47,8 @@ class filesController extends Controller
     public function create()
     {
         //upload files page needed?
-        return view('media.create-file');
+        $voyager = new Voyager();
+        return view('media.create-file')->with('voyager', $voyager);
 
     }
 

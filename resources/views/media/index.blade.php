@@ -59,15 +59,17 @@
                                     </button>
 
                                     <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#">
-                                                {!!Form::open(['action' => ['FilesController@destroy', $file->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
-                                                {{Form::hidden('_method', 'DELETE')}}
-                                                {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                                                {!!Form::close()!!}
-                                            </a>
-                                        </li>
+                                            @if((Auth::user()->id == $file->user_id)||$voyager->can('delete_files'))
 
+                                            <li>
+                                                <a href="#">
+                                                    {!!Form::open(['action' => ['FilesController@destroy', $file->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                                                    {{Form::hidden('_method', 'DELETE')}}
+                                                    {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                                                    {!!Form::close()!!}
+                                                </a>
+                                            </li>
+                                                @endif
                                         <li>
                                             {!!Form::open(['action' => ['FilesController@download', $file->id], 'method' => 'GET'])!!}
                                             {{Form::submit('Download', ['class' => 'btn btn-default'])}}
@@ -119,18 +121,23 @@
                                     background-size: 10px 10px;">
                                         <span class="caret"></span>
                                     </button>
-
                                     <ul class="dropdown-menu">
-                                        <li>{!!Form::open(['action' => ['FilesController@destroy', $file->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
-                                            {{Form::hidden('_method', 'DELETE')}}
-                                            {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                                            {!!Form::close()!!}</li>
+
+                                    @if((Auth::user()->id == $file->user_id)||$voyager->can('delete_files'))
+                                                <li>
+                                                    {!!Form::open(['action' => ['FilesController@destroy', $file->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                                                    {{Form::hidden('_method', 'DELETE')}}
+                                                    {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                                                    {!!Form::close()!!}
+                                                </li>
+                                    @endif
 
 
-                                        <li>{!!Form::open(['action' => ['FilesController@download', $file->id], 'method' => 'GET'])!!}
-                                            {{Form::submit('Download', ['class' => 'btn '])}}
-                                            {!!Form::close()!!}</li>
-                                    </ul>
+                                                <li>{!!Form::open(['action' => ['FilesController@download', $file->id], 'method' => 'GET'])!!}
+                                                    {{Form::submit('Download', ['class' => 'btn '])}}
+                                                    {!!Form::close()!!}
+                                                </li>
+                                            </ul>
                                 </div>
                             </td>
                         </tr>
@@ -180,10 +187,18 @@
                                     </button>
 
                                     <ul class="dropdown-menu">
+
+                                        @can('delete', $file)
+
                                         <li><a href="#">{!!Form::open(['action' => ['FilesController@destroy', $file->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                                 {{Form::hidden('_method', 'DELETE')}}
                                                 {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                                                {!!Form::close()!!}</a></li>
+                                                {!!Form::close()!!}
+                                            </a>
+                                        </li>
+
+                                        @endcan
+
                                         <li>{!!Form::open(['action' => ['FilesController@download', $file->id], 'method' => 'GET'])!!}
                                             {{Form::submit('Download', ['class' => 'btn '])}}
                                             {!!Form::close()!!}</li>                                    </ul>
