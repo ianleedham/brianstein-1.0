@@ -69,8 +69,8 @@ class filesController extends Controller
         try {
             $canAddPost = $voyager->can('add_files');
         } catch (\Exception $e) {
-            Log::error('Error with files controller: '.$e);
-            return redirect('/media')->with('error', 'You don not have permission to do that');
+            Log::error('Error with files controller@store: '.$e);
+            return redirect('/media')->with('error', 'You do not have permission to do that');
         }
 
         // Handle File Upload
@@ -98,6 +98,8 @@ class filesController extends Controller
             $file->save();
 
             return redirect('/media')->with('success', 'File Uploaded');
+        }else {
+            return redirect('/media')->with('error', 'You do not have permission to do that');
         }
     }
 
@@ -164,11 +166,11 @@ class filesController extends Controller
             Storage::delete('public/files/' . $file->name);
 
             $file->delete();
-            return redirect('/files')->with('success', 'File Removed');
+            return redirect('/media')->with('success', 'File Removed');
 
 
         }else{
-            return redirect('/media')->with('error', 'You don not have permission to do that');
+            return redirect('/media')->with('error', 'You do not have permission to do that');
         }
     }
 
