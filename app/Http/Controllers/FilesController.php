@@ -62,22 +62,12 @@ class filesController extends Controller
         $this->validate($request, [
 
             'file' => 'file|required|max:199900',
-            'description'=>'required',
+            'description'=>'nullable',
             'name'=>'required'
         ]);
-        Log::error('Error with files controller@store: at start');
 
-        $voyager = new Voyager();
-        try {
-            $canAddPost = $voyager->can('add_files');
-        } catch (\Exception $e) {
-            Log::error('Error with files controller@store: '.$e);
-            return redirect('/media')->with('error', 'You do not have permission to do that');
-        }
-        Log::error('Error with files controller@store: before if');
 
         // Handle File Upload
-        if($canAddPost) {
             // Get filename with the extension
             $filenameWithExt = $request->file('file')->getClientOriginalName();
             // Get just filename
@@ -101,10 +91,8 @@ class filesController extends Controller
             $file->save();
 
             return redirect('/media')->with('success', 'File Uploaded');
-        }else {
-            return redirect('/media')->with('error', 'You do not have permission to do that');
         }
-    }
+
 
     /**
      * Display the specified resource.
