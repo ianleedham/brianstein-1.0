@@ -59,10 +59,7 @@
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/dashboard">Dashboard</a>
-                        {{--@if(!(Auth::user()->hasRole("User")))--}}
-                        <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                         <a class="dropdown-item" href='/changepassword'>ChangePassword</a>
-                        {{--@endif--}}
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
