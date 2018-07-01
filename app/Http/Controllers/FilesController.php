@@ -75,7 +75,7 @@ class filesController extends Controller
             // Get just extmedia
             $extension = $request->file('file')->getClientOriginalExtension();
             // Filename to store
-            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $fileNameToStore = $filename . '_' . time();
 
             // Upload Image
             $path = $request->file('file')->storeAs('public/files', $fileNameToStore);
