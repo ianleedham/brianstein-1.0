@@ -47705,8 +47705,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__partials_word_composer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__partials_word_composer_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pagination_pagination_vue__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pagination_pagination_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__pagination_pagination_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__partials_modal_vue__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__partials_modal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__partials_modal_vue__);
 //
 //
 //
@@ -47746,7 +47744,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
 
 
 
@@ -47756,8 +47753,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: {
         Word: __WEBPACK_IMPORTED_MODULE_0__partials_dictionary_word_vue___default.a,
         WordComposer: __WEBPACK_IMPORTED_MODULE_1__partials_word_composer_vue___default.a,
-        Pagination: __WEBPACK_IMPORTED_MODULE_2__pagination_pagination_vue___default.a,
-        Modal: __WEBPACK_IMPORTED_MODULE_3__partials_modal_vue___default.a
+        Pagination: __WEBPACK_IMPORTED_MODULE_2__pagination_pagination_vue___default.a
     },
     data: function data() {
         return {

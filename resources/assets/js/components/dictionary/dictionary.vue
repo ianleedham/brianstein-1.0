@@ -41,14 +41,12 @@
     import Word from './partials/dictionary-word.vue'
     import WordComposer from './partials/word-composer.vue'
     import Pagination from '../pagination/pagination.vue'
-    import Modal from './partials/modal.vue'
 
     export default {
         components: {
             Word,
             WordComposer,
-            Pagination,
-            Modal,
+            Pagination, 
         },
         data() {
             return {
