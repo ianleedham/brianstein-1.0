@@ -82,7 +82,7 @@ class DictionaryController extends Controller
         $word->user_id = auth()->user()->id;
         $word->save();
 
-        return redirect('/dictionary')->with('success', 'WordResource Created');
+        return redirect('/vue-dictionary')->with('success', 'WordResource Created');
     }
 
 
@@ -112,7 +112,7 @@ class DictionaryController extends Controller
             $canEditCantonese = $voyager->can('edit_cantonese');
         } catch (\Exception $e) {
             Log::error('Error with files controller: ' . $e);
-            return redirect('/media')->with('error', 'You don not have permission to do that');
+            return redirect('/vue-dictionary')->with('error', 'You can only edit or delete your own words');
         }
 
         $user_owns_post = auth()->user()->id ===$word->user_id;
@@ -180,7 +180,7 @@ class DictionaryController extends Controller
             $canEditCantonese = $voyager->can('delete_cantonese');
         } catch (\Exception $e) {
             Log::error('Error with files controller: ' . $e);
-            return redirect('/media')->with('error', 'You don not have permission to do that');
+            return redirect('/vue-dictionary')->with('error', 'You can only edit or delete your own words');
         }
 
         $user_owns_post = auth()->user()->id ===$word->user_id;
@@ -191,7 +191,7 @@ class DictionaryController extends Controller
             $word = Word::find($id);
 
             $word->delete();
-            return redirect('/dictionary')->with('success', 'WordResource Removed');
+            return redirect('/vue-dictionary')->with('success', 'WordResource Removed');
        // }
     }
         }
