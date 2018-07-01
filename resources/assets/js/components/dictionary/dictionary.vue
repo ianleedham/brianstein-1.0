@@ -30,7 +30,7 @@
                 </tbody>
             </table>
             <pagination :meta="meta" v-on:pagination:switched="getwords"></pagination>
-
+            <modal></modal>
         </div>
 
     </div>
@@ -41,11 +41,14 @@
     import Word from './partials/dictionary-word.vue'
     import WordComposer from './partials/word-composer.vue'
     import Pagination from '../pagination/pagination.vue'
+    import Modal from './partials/modal.vue'
+
     export default {
         components: {
             Word,
             WordComposer,
             Pagination,
+            Modal,
         },
         data() {
             return {
@@ -53,6 +56,7 @@
                 order: 'asc',
                 words: [],
                 meta: {},
+                isModalVisible: false,
             }
         },
         computed: {
