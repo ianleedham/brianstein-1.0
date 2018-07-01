@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component(     'dictionary-view', require('./components/dictionary/dictionary.vue')  );
+Vue.component(     'flash-cards', require('./components/dictionary/flashcards/flashcards.vue')  );
 
 
 const app = new Vue({

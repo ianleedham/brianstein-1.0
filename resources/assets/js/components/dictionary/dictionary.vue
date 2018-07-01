@@ -32,6 +32,7 @@
             <pagination :meta="meta" v-on:pagination:switched="getwords"></pagination>
 
         </div>
+
     </div>
 </template>
 

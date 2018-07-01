@@ -71,3 +71,5 @@ Route::post('/send', 'EmailController@send');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+Route::get('flashcards', function (){ return view('dictionary.flashcards');
+});

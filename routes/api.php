@@ -21,6 +21,8 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
 
 Route::get('/dictionary', 'DictionaryApiController@index');
 
+Route::get('/whole-dictionary', 'DictionaryApiController@whole');
+
 //list single word
 Route::get('dictionary/{id}', 'DictionaryApiController@show');
 

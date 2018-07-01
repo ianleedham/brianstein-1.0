@@ -20,23 +20,9 @@ class DictionaryApiController extends Controller
     public function index()
     {
 
-/*
         $sortby = Input::get('sortby');
         $order = Input::get('order');
 
-        if ($sortby && $order) {
-            $dictionary = WordResource::orderBy($sortby, $order)->paginate(20);
-        } else {
-            $dictionary = WordResource::orderBy('created_at','desc')->paginate(20);
-        }
-        //return View::make('posts.index', compact('posts', 'sortby', 'order'));
-        return view('dictionary.index')->with('dictionary', $dictionary)
-            ->with('sortby', $sortby)->with( 'order', $order);*/
-
-        $sortby = Input::get('sortby');
-        $order = Input::get('order');
-
-        Log::debug('sortby: '.$sortby.'order'. $order);
 
         if ($sortby && $order) {
             $dictionary = Word::with('user')->orderBy($sortby, $order)->paginate(10);
@@ -137,5 +123,14 @@ class DictionaryApiController extends Controller
         }
         else return 'error word not found';
         }
+    }
+
+    public function whole(){
+
+
+            $dictionary = Word::all();
+
+
+        return new WordCollection($dictionary);
     }
 }

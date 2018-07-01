@@ -14286,7 +14286,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(57);
+module.exports = __webpack_require__(60);
 
 
 /***/ }),
@@ -14311,6 +14311,7 @@ window.Vue = __webpack_require__(39);
  */
 
 Vue.component('dictionary-view', __webpack_require__(42));
+Vue.component('flash-cards', __webpack_require__(57));
 
 var app = new Vue({
   el: '#app'
@@ -47742,6 +47743,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -48532,6 +48534,205 @@ if (false) {
 
 /***/ }),
 /* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(58)
+/* template */
+var __vue_template__ = __webpack_require__(59)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/dictionary/flashcards/flashcards.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-223e77ed", Component.options)
+  } else {
+    hotAPI.reload("data-v-223e77ed", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            dictionary: [],
+            dictionary_length: 50,
+            rand_num: [1, 2, 3],
+            random_numbers: []
+        };
+    },
+
+    computed: {
+        random_words: function random_words() {
+            return [this.dictionary[this.random_numbers[0]], this.dictionary[this.random_numbers[1]], this.dictionary[this.random_numbers[2]]];
+        },
+        test_word: function test_word() {
+            return this.random_words[this.random_numbers[3]];
+        }
+    },
+    methods: {
+        getwords: function getwords() {
+            var _this = this;
+
+            axios.get('/api/whole-dictionary', {
+                params: {}
+            }).then(function (response) {
+                console.log(response);
+                _this.dictionary = response.data.data;
+                _this.dictionary_length = _this.dictionary.length;
+                console.log(_this.dictionary_length);
+            });
+        },
+        word_clicked: function word_clicked() {
+            var Index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+            if (this.random_numbers[3] === Index) {
+
+                this.generate_random_numbers();
+            }
+        },
+        generate_random_numbers: function generate_random_numbers() {
+            var numberOne = Math.floor(Math.random() * this.dictionary_length);
+            var numberTwo = Math.floor(Math.random() * this.dictionary_length);
+            var numberThree = Math.floor(Math.random() * this.dictionary_length);
+
+            // run this loop until numberOne is different than numberThree
+            do {
+                numberOne = Math.floor(Math.random() * this.dictionary_length);
+            } while (numberOne === numberThree);
+
+            // run this loop until numberTwo is different than numberThree and numberOne
+            do {
+                numberTwo = Math.floor(Math.random() * this.dictionary_length);
+            } while (numberTwo === numberThree || numberTwo === numberOne);
+
+            this.random_numbers = [numberOne, numberTwo, numberThree, Math.floor(Math.random() * 2 + 1)];
+        }
+    },
+    mounted: function mounted() {
+        this.getwords();
+        this.generate_random_numbers();
+    }
+});
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.test_word && _vm.random_words
+    ? _c("div", [
+        _c("h1", [_vm._v(_vm._s(_vm.test_word.jyutping))]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            ref: "english_one",
+            staticClass: "btn btn-primary",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.word_clicked(0)
+              }
+            }
+          },
+          [_vm._v(_vm._s(_vm.random_words[0].english))]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            ref: "english_two",
+            staticClass: "btn btn-primary",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.word_clicked(1)
+              }
+            }
+          },
+          [_vm._v(_vm._s(_vm.random_words[1].english))]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            ref: "english_three",
+            staticClass: "btn btn-primary",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.word_clicked(2)
+              }
+            }
+          },
+          [_vm._v(_vm._s(_vm.random_words[2].english))]
+        ),
+        _vm._v(" "),
+        _c("p", [_vm._v("sound")])
+      ])
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-223e77ed", module.exports)
+  }
+}
+
+/***/ }),
+/* 60 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
