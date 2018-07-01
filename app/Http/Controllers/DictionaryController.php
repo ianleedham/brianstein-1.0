@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Word;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Log;
+use TCG\Voyager\Voyager;
 
 class DictionaryController extends Controller
 {
@@ -103,15 +105,24 @@ class DictionaryController extends Controller
      */
     public function edit($id)
     {
-        // Check if user is admin todo add checks
-   /*     if(!(Auth::user()->hasRole("Admin"))) {
-
-            return redirect('/posts')->with('error', 'Unauthorized Page');
-       }else {*/
         $word = Word::find($id);
+
+        $voyager = new Voyager();
+        try {
+            $canEditCantonese = $voyager->can('edit_cantonese');
+        } catch (\Exception $e) {
+            Log::error('Error with files controller: ' . $e);
+            return redirect('/media')->with('error', 'You don not have permission to do that');
+        }
+
+        $user_owns_post = auth()->user()->id ===$word->user_id;
+
+
+        // Check for correct user
+        if(!$user_owns_post||!$canEditCantonese) {
             return view('dictionary.edit')->with('word', $word);
 
-
+        }
     }
 
     /**
@@ -162,18 +173,28 @@ class DictionaryController extends Controller
      */
     public function destroy($id)
     {
+        $word = Word::find($id);
 
-        // Check if user is admin
-        //if(!(Auth::user()->hasRole("Admin"))) {
+        $voyager = new Voyager();
+        try {
+            $canEditCantonese = $voyager->can('delete_cantonese');
+        } catch (\Exception $e) {
+            Log::error('Error with files controller: ' . $e);
+            return redirect('/media')->with('error', 'You don not have permission to do that');
+        }
 
-       //     return redirect('/posts')->with('error', 'Unauthorized Page');
-       // }else {
+        $user_owns_post = auth()->user()->id ===$word->user_id;
+
+
+        // Check for correct user
+        if(!$user_owns_post||!$canEditCantonese) {
             $word = Word::find($id);
 
             $word->delete();
             return redirect('/dictionary')->with('success', 'WordResource Removed');
        // }
     }
+        }
 
     public function vue(){
             $dictionary = Word::orderBy('created_at','desc')->paginate(20);

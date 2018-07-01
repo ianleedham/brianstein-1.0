@@ -9,7 +9,7 @@
     </div>
     <div class="form-group">
         {{Form::label('body', 'Body')}}
-        {{Form::textarea('body', $post->body, [ 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
+        {{Form::textarea('body', $post->body, [  'class' => 'form-control', 'placeholder' => 'Body Text'])}}
     </div>
     <div class="form-group">
         {{Form::file('cover_image')}}
