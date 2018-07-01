@@ -72,7 +72,7 @@ class filesController extends Controller
             $filenameWithExt = $request->file('file')->getClientOriginalName();
             // Get just filename
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
+            // Get just extmedia
             $extension = $request->file('file')->getClientOriginalExtension();
             // Filename to store
             $fileNameToStore = $filename . '_' . time() . '.' . $extension;

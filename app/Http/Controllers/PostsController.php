@@ -60,7 +60,7 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
-            'cover_image' => 'image|nullable|max:1999|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'cover_image' => 'image|nullable|max:1999|mimes:jpeg,png,jpg,gif,svg'
 
         ]);
 
@@ -74,14 +74,14 @@ class PostsController extends Controller
             // Get just ext
             $extension = $request->file('cover_image')->getClientOriginalExtension();
             // Filename to store
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            $fileNameToStore= $filename.'_'.time();
 
             // Upload Image
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
 
 
         } else {
-            $fileNameToStore = 'noimage.jpg';
+            $fileNameToStore = 'noimage';
         }
 
         // Create Post
@@ -147,6 +147,8 @@ class PostsController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
+
+        //todo does this need checking the user owns the post?
 
         // Handle File Upload
         if($request->hasFile('cover_image')){
