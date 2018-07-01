@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Post_backup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
 use DB;
 use Mews\Purifier\Facades\Purifier;
+use TCG\Voyager\Voyager;
 
 class PostsController extends Controller
 {
@@ -126,8 +128,20 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
 
+
+        $voyager = new Voyager();
+        try {
+            $canEditPosts = $voyager->can('edit_posts');
+        } catch (\Exception $e) {
+            Log::error('Error with files controller: ' . $e);
+            return redirect('/media')->with('error', 'You don not have permission to do that');
+        }
+
+        $user_owns_post = auth()->user()->id ===$post->user_id;
+
+
         // Check for correct user
-        if(auth()->user()->id !==$post->user_id){
+        if(!$user_owns_post||!$canEditPosts){
             return redirect('/posts')->with('error', 'Unauthorized Page');
         }else {
             return view('posts.edit')->with('post', $post);
@@ -187,8 +201,19 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
 
+
+        $voyager = new Voyager();
+        try {
+            $canDeletePosts = $voyager->can('delete_posts');
+        } catch (\Exception $e) {
+            return redirect('/media')->with('error', 'You don not have permission to do that');
+        }
+
+        $user_owns_post = auth()->user()->id ===$post->user_id;
+
+
         // Check for correct user
-        if(auth()->user()->id !==$post->user_id){
+        if(!$user_owns_post||!$canDeletePosts){
             return redirect('/posts')->with('error', 'Unauthorized Page');
         }
 
