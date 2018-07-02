@@ -95,7 +95,7 @@
             overflow-x: auto;
             display: flex;
             flex-direction: column;
-            margin: 15% 25% 15% 25%;
+            margin: 15% auto 15% auto;
         }
     }
 
@@ -107,7 +107,8 @@
             overflow-x: auto;
             display: flex;
             flex-direction: column;
-            margin: 0 25% 25% 0;
+            margin-bottom: 30%;
+            margin-top: 100px;
         }
     }
 
