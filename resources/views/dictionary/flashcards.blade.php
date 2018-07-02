@@ -4,7 +4,7 @@
 
 
 <h2>Flashcards:</h2>
-<flash-cards></flash-cards>
+<flash-cards user ="{{ Auth::user()->id }}"></flash-cards>
 
 
 @endsection

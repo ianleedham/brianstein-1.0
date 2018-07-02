@@ -6,16 +6,21 @@
         <button class="btn btn-primary" v-on:click.prevent="word_clicked(2)" ref="english_three">{{random_words[2].english}}</button>
 
     <p>sound</p>
-        <ModalOuter></ModalOuter>
-
+        <modal-Outer></modal-Outer>
+        <word-composer :user="user"></word-composer>
     </div>
 </template>
 
 <script>
-    import modalOuter from './modal_outer.vue'
+    import ModalOuter from './modal_outer.vue'
+    import WordComposer from "../partials/word-composer";
     export default {
+        props:[
+            'user',
+        ],
         components: {
-            modalOuter,
+            WordComposer,
+            ModalOuter,
         },
             data() {
             return {
@@ -82,7 +87,7 @@
         },
         mounted () {
            this.getwords();
-           this.generate_random_numbers()
+           this.generate_random_numbers();
         },
     }
 </script>

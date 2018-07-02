@@ -42,7 +42,7 @@ class DictionaryApiController extends Controller
      */
     public function store(Request $request)
     {
-        Log::debug('post to store '. $request);
+        Log::debug($request);
 
         $word = $request->isMethod('put') ? Word::findOrFail($request->id) : new Word;
 
@@ -58,25 +58,36 @@ class DictionaryApiController extends Controller
             // Filename to store
             $fileNameToStore= $filename.'_'.time().'.'.$extension;
 
-            // Upload Image
+            // Upload audio
             $path = $request->file('file')->storeAs('public/appFiles', $fileNameToStore);
 
-            if ($path){        Log::debug('upload successful' );
+            if ($path){
+                Log::debug('upload successful' );
             }
         } else {
             $fileNameToStore = 'nosound.3gp';
-
-            $word->id = $request->input('id');
-            $word->english = $request->input('english');
-            $word->cantonese = $request->input('cantonese');
-            $word->jyutping = $request->input('jyutping');
-
         }
+        if ($request->input('user_id')==null)
+        {
+            $word->user_id = 1;
+            Log::debug($request->input('user_id'));
+        }else
+        {
+            $user_id = $request->input('user_id');
+            $word->user_id = $user_id;
+        }
+
+        $word->id = $request->input('id');
+        $word->english = $request->input('english');
+        $word->cantonese = $request->input('cantonese');
+        $word->jyutping = $request->input('jyutping');
+
+
         $word->soundAddress = $fileNameToStore;
 
 
         if ($word->save()) {
-            Log::debug('post to store '. $word);
+            Log::debug('word to store: '. $word);
 
             return new WordResource($word);
         }

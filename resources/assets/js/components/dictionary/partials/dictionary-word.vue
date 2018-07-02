@@ -6,7 +6,7 @@
             <td>{{word.jyutping}}</td>
             <td class="col-md-1" >
                 <audio ref="audioElm" :src="'/storage/sounds/' + word.soundAddress + '.mp3'"></audio>
-                <img v-on:click="play"class="btn play-button"  src="/storage/images/Play-Button-PNG-Picture.png"  type="button"/>
+                <img v-on:click="play" class="btn play-button"  src="/storage/images/Play-Button-PNG-Picture.png"  type="button"/>
             </td>
 
             <td>
