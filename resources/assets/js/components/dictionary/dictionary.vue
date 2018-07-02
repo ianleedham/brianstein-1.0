@@ -46,7 +46,7 @@
         components: {
             Word,
             WordComposer,
-            Pagination, 
+            Pagination,
         },
         data() {
             return {

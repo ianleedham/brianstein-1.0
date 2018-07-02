@@ -11,7 +11,7 @@
 <template>
     <transition name="modal-fade">
         <div class="modal-backdrop">
-            <div class="modal"
+            <div class="modal box col-md-6"
                  role="dialog"
                  aria-labelledby="modalTitle"
                  aria-describedby="modalDescription"
@@ -37,9 +37,23 @@
                         class="modal-body"
                         id="modalDescription"
                 >
-                    <slot name="body">
-                        I'm the default body!
-                    </slot>
+                    <div>
+                        <slot name="cantonese">
+                            广东话; 廣東話
+                        </slot>
+                        <div>
+
+                        </div>
+                        <slot name="english">
+                            english
+                        </slot>
+                        <div>
+
+                        </div>
+                        <slot name="jyutping">
+                            jyutping
+                        </slot>
+                    </div>
                 </section>
                 <footer class="modal-footer">
                     <slot name="footer">
@@ -78,6 +92,8 @@
         overflow-x: auto;
         display: flex;
         flex-direction: column;
+        margin:   15% 25% 15% 25%;
+
     }
 
     .modal-header,
