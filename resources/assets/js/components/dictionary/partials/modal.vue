@@ -5,6 +5,9 @@
             close() {
                 this.$emit('close');
             },
+            play: function (event) {
+                this.$refs.audioElm.play();
+            },
         },
     };
 </script>
@@ -21,54 +24,60 @@
                         id="modalTitle"
                 >
                     <slot name="header">
-                        This is the default tile!
 
-                        <button
-                                type="button"
-                                class="btn-close"
-                                @click="close"
-                                aria-label="Close modal"
-                        >
-                            x
-                        </button>
+                        level: 1
+                        <button class="btn btn-primary">add to custom list</button>
+
                     </slot>
+                    <button
+                            type="button"
+                            class="btn-close"
+                            @click="close"
+                            aria-label="Close modal"
+                    >
+                        x
+                    </button>
                 </header>
                 <section
                         class="modal-body"
                         id="modalDescription"
                 >
-                    <div>
-                        <slot name="cantonese">
-                            广东话; 廣東話
-                        </slot>
-                        <div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="cantonese-slot">
+                                <slot name="cantonese" >
+                                    广东话; 廣東話
+                                </slot>
+                            </p>
+                            <slot name="sound">
+                                <audio ref="audioElm" :src="'/storage/sounds/' + 'sam' + '.mp3'"></audio>
+                            </slot>
+                            <img v-on:click="play" class="btn play-button"  src="/storage/images/Play-Button-PNG-Picture.png"  />
 
                         </div>
-                        <slot name="english">
-                            english
-                        </slot>
-                        <div>
+                        <div class="col">
+                            <p  class="jyutping-slot" >
+                                <slot name="jyutping" class="jyutping-slot" style="font-size: 20px">
+                                    jyutping
+                                </slot>
+                            </p>
+                            <p class="english-slot">
+
+                                <slot name="english" >
+                                    english
+                                </slot>
+                            </p>
 
                         </div>
-                        <slot name="jyutping">
-                            jyutping
-                        </slot>
+
                     </div>
                 </section>
                 <footer class="modal-footer">
                     <slot name="footer">
-                        I'm the default footer!
-
-                        <button
-                                type="button"
-                                class="btn-green"
-                                @click="close"
-                                aria-label="Close modal"
-                        >
-                            Close me!
-                        </button>
+                        <p> details: hhkhjvj jjhgvkh hvjdggljgb hfgkjhjkhftdfy hrteryukjljgteyrdv hfueghggjtdgjkgjgc</p>
                     </slot>
                 </footer>
+
             </div>
         </div>
     </transition>
@@ -95,7 +104,7 @@
             overflow-x: auto;
             display: flex;
             flex-direction: column;
-            margin: 15% auto 15% auto;
+            margin: 10% auto 10% auto;
         }
     }
 
@@ -118,10 +127,12 @@
 
 
 
-    .modal-header,
-    .modal-footer {
+    .modal-header{
         padding: 15px;
         display: flex;
+    }
+    .modal-footer {
+        padding: 15px;
     }
 
     .modal-header {
@@ -130,10 +141,6 @@
         justify-content: space-between;
     }
 
-    .modal-footer {
-        border-top: 1px solid #eeeeee;
-        justify-content: flex-end;
-    }
 
     .modal-body {
         position: relative;
@@ -155,5 +162,14 @@
         background: #4AAE9B;
         border: 1px solid #4AAE9B;
         border-radius: 2px;
+    }
+
+    .cantonese-slot, .jyutping-slot, .english-slot {
+        font-size: 35px;
+    }
+
+    .play-button {
+        max-width: 90px;
+        margin: 1% auto 1% auto;
     }
 </style>

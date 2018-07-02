@@ -6,16 +6,16 @@
         <button class="btn btn-primary" v-on:click.prevent="word_clicked(2)" ref="english_three">{{random_words[2].english}}</button>
 
     <p>sound</p>
-        <test></test>
+        <ModalOuter></ModalOuter>
 
     </div>
 </template>
 
 <script>
-    import Test from './test.vue'
+    import modalOuter from './modal_outer.vue'
     export default {
         components: {
-            Test,
+            modalOuter,
         },
             data() {
             return {

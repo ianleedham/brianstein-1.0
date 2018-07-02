@@ -48589,8 +48589,8 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__test_vue__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__test_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__test_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modal_outer_vue__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modal_outer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__modal_outer_vue__);
 //
 //
 //
@@ -48608,7 +48608,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: {
-        Test: __WEBPACK_IMPORTED_MODULE_0__test_vue___default.a
+        modalOuter: __WEBPACK_IMPORTED_MODULE_0__modal_outer_vue___default.a
     },
     data: function data() {
         return {
@@ -48673,85 +48673,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(60)
-/* template */
-var __vue_template__ = __webpack_require__(66)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/dictionary/flashcards/test.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-d0a04de8", Component.options)
-  } else {
-    hotAPI.reload("data-v-d0a04de8", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 60 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_modal_vue__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_modal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__partials_modal_vue__);
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'app',
-    components: {
-        modal: __WEBPACK_IMPORTED_MODULE_0__partials_modal_vue___default.a
-    },
-    data: function data() {
-        return {
-            isModalVisible: false
-        };
-    },
-
-    methods: {
-        showModal: function showModal() {
-            this.isModalVisible = true;
-        },
-        closeModal: function closeModal() {
-            this.isModalVisible = false;
-        }
-    }
-});
-
-/***/ }),
+/* 59 */,
+/* 60 */,
 /* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -48837,7 +48760,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.modal-backdrop {\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    background-color: rgba(0, 0, 0, 0.3);\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n@media only screen and (min-width: 768px) {\n    /* tablets and desktop */\n.modal {\n        background: #FFFFFF;\n        -webkit-box-shadow: 2px 2px 20px 1px;\n                box-shadow: 2px 2px 20px 1px;\n        overflow-x: auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        margin: 15% auto 15% auto;\n}\n}\n@media only screen and (max-width: 767px) {\n    /* phones */\n.modal {\n        background: #FFFFFF;\n        -webkit-box-shadow: 2px 2px 20px 1px;\n                box-shadow: 2px 2px 20px 1px;\n        overflow-x: auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        margin-bottom: 30%;\n        margin-top: 100px;\n}\n}\n@media only screen and (max-width: 767px) and (orientation: portrait) {\n    /* portrait phones */\n}\n.modal-header,\n.modal-footer {\n    padding: 15px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.modal-header {\n    border-bottom: 1px solid #eeeeee;\n    color: #4AAE9B;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n.modal-footer {\n    border-top: 1px solid #eeeeee;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end;\n}\n.modal-body {\n    position: relative;\n    padding: 20px 10px;\n}\n.btn-close {\n    border: none;\n    font-size: 20px;\n    padding: 20px;\n    cursor: pointer;\n    font-weight: bold;\n    color: #4AAE9B;\n    background: transparent;\n}\n.btn-green {\n    color: white;\n    background: #4AAE9B;\n    border: 1px solid #4AAE9B;\n    border-radius: 2px;\n}\n", ""]);
+exports.push([module.i, "\n.modal-backdrop {\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    background-color: rgba(0, 0, 0, 0.3);\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n@media only screen and (min-width: 768px) {\n    /* tablets and desktop */\n.modal {\n        background: #FFFFFF;\n        -webkit-box-shadow: 2px 2px 20px 1px;\n                box-shadow: 2px 2px 20px 1px;\n        overflow-x: auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        margin: 10% auto 10% auto;\n}\n}\n@media only screen and (max-width: 767px) {\n    /* phones */\n.modal {\n        background: #FFFFFF;\n        -webkit-box-shadow: 2px 2px 20px 1px;\n                box-shadow: 2px 2px 20px 1px;\n        overflow-x: auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        margin-bottom: 30%;\n        margin-top: 100px;\n}\n}\n@media only screen and (max-width: 767px) and (orientation: portrait) {\n    /* portrait phones */\n}\n.modal-header{\n    padding: 15px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.modal-footer {\n    padding: 15px;\n}\n.modal-header {\n    border-bottom: 1px solid #eeeeee;\n    color: #4AAE9B;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n.modal-body {\n    position: relative;\n    padding: 20px 10px;\n}\n.btn-close {\n    border: none;\n    font-size: 20px;\n    padding: 20px;\n    cursor: pointer;\n    font-weight: bold;\n    color: #4AAE9B;\n    background: transparent;\n}\n.btn-green {\n    color: white;\n    background: #4AAE9B;\n    border: 1px solid #4AAE9B;\n    border-radius: 2px;\n}\n.cantonese-slot, .jyutping-slot, .english-slot {\n    font-size: 35px;\n}\n.play-button {\n    max-width: 90px;\n    margin: 1% auto 1% auto;\n}\n", ""]);
 
 // exports
 
@@ -48854,6 +48777,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         close: function close() {
             this.$emit('close');
+        },
+
+        play: function play(event) {
+            this.$refs.audioElm.play();
         }
     }
 });
@@ -48885,18 +48812,22 @@ var render = function() {
             [
               _vm._t("header", [
                 _vm._v(
-                  "\n                    This is the default tile!\n\n                    "
+                  "\n\n                    level: 1\n                    "
                 ),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn-close",
-                    attrs: { type: "button", "aria-label": "Close modal" },
-                    on: { click: _vm.close }
-                  },
-                  [_vm._v("\n                        x\n                    ")]
-                )
-              ])
+                _c("button", { staticClass: "btn btn-primary" }, [
+                  _vm._v("add to custom list")
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn-close",
+                  attrs: { type: "button", "aria-label": "Close modal" },
+                  on: { click: _vm.close }
+                },
+                [_vm._v("\n                    x\n                ")]
+              )
             ],
             2
           ),
@@ -48905,33 +48836,70 @@ var render = function() {
             "section",
             { staticClass: "modal-body", attrs: { id: "modalDescription" } },
             [
-              _c(
-                "div",
-                [
-                  _vm._t("cantonese", [
-                    _vm._v(
-                      "\n                        广东话; 廣東話\n                    "
-                    )
-                  ]),
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col" },
+                  [
+                    _c(
+                      "p",
+                      { staticClass: "cantonese-slot" },
+                      [
+                        _vm._t("cantonese", [
+                          _vm._v(
+                            "\n                                广东话; 廣東話\n                            "
+                          )
+                        ])
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _vm._t("sound", [
+                      _c("audio", {
+                        ref: "audioElm",
+                        attrs: { src: "/storage/sounds/" + "sam" + ".mp3" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "btn play-button",
+                      attrs: {
+                        src: "/storage/images/Play-Button-PNG-Picture.png"
+                      },
+                      on: { click: _vm.play }
+                    })
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col" }, [
+                  _c(
+                    "p",
+                    { staticClass: "jyutping-slot" },
+                    [
+                      _vm._t("jyutping", [
+                        _vm._v(
+                          "\n                                jyutping\n                            "
+                        )
+                      ])
+                    ],
+                    2
+                  ),
                   _vm._v(" "),
-                  _c("div"),
-                  _vm._v(" "),
-                  _vm._t("english", [
-                    _vm._v(
-                      "\n                        english\n                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div"),
-                  _vm._v(" "),
-                  _vm._t("jyutping", [
-                    _vm._v(
-                      "\n                        jyutping\n                    "
-                    )
-                  ])
-                ],
-                2
-              )
+                  _c(
+                    "p",
+                    { staticClass: "english-slot" },
+                    [
+                      _vm._t("english", [
+                        _vm._v(
+                          "\n                                english\n                            "
+                        )
+                      ])
+                    ],
+                    2
+                  )
+                ])
+              ])
             ]
           ),
           _vm._v(" "),
@@ -48940,22 +48908,11 @@ var render = function() {
             { staticClass: "modal-footer" },
             [
               _vm._t("footer", [
-                _vm._v(
-                  "\n                    I'm the default footer!\n\n                    "
-                ),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn-green",
-                    attrs: { type: "button", "aria-label": "Close modal" },
-                    on: { click: _vm.close }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        Close me!\n                    "
-                    )
-                  ]
-                )
+                _c("p", [
+                  _vm._v(
+                    " details: hhkhjvj jjhgvkh hvjdggljgb hfgkjhjkhftdfy hrteryukjljgteyrdv hfueghggjtdgjkgjgc"
+                  )
+                ])
               ])
             ],
             2
@@ -48976,65 +48933,7 @@ if (false) {
 }
 
 /***/ }),
-/* 66 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "app" } },
-    [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary",
-          attrs: { type: "button" },
-          on: { click: _vm.showModal }
-        },
-        [_vm._v("\n        Open Modal!\n    ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "modal",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.isModalVisible,
-              expression: "isModalVisible"
-            }
-          ],
-          on: { close: _vm.closeModal }
-        },
-        [
-          _c("p", { attrs: { slot: "header" }, slot: "header" }, [
-            _vm._v("testing hoping for slot one?")
-          ]),
-          _vm._v(" "),
-          _c("h3", { attrs: { slot: "body" }, slot: "body" }, [
-            _vm._v("maybe slot two?")
-          ])
-        ]
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-d0a04de8", module.exports)
-  }
-}
-
-/***/ }),
+/* 66 */,
 /* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -49095,7 +48994,7 @@ var render = function() {
           _vm._v(" "),
           _c("p", [_vm._v("sound")]),
           _vm._v(" "),
-          _c("test")
+          _c("ModalOuter")
         ],
         1
       )
@@ -49116,6 +49015,164 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(73)
+/* template */
+var __vue_template__ = __webpack_require__(74)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/dictionary/flashcards/modal_outer.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-ddbd7d42", Component.options)
+  } else {
+    hotAPI.reload("data-v-ddbd7d42", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 73 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_modal_vue__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__partials_modal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__partials_modal_vue__);
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'app',
+    components: {
+        modal: __WEBPACK_IMPORTED_MODULE_0__partials_modal_vue___default.a
+    },
+    data: function data() {
+        return {
+            isModalVisible: false
+        };
+    },
+
+    methods: {
+        showModal: function showModal() {
+            this.isModalVisible = true;
+        },
+        closeModal: function closeModal() {
+            this.isModalVisible = false;
+        }
+    }
+});
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "app" } },
+    [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { type: "button" },
+          on: { click: _vm.showModal }
+        },
+        [_vm._v("\n        Open Modal!\n    ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "modal",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.isModalVisible,
+              expression: "isModalVisible"
+            }
+          ],
+          on: { close: _vm.closeModal }
+        },
+        [
+          _c("audio", {
+            ref: "audioElm",
+            attrs: { src: "/storage/sounds/" + "sam" + ".mp3" }
+          }),
+          _vm._v(" "),
+          _c("p", { attrs: { slot: "cantonese" }, slot: "cantonese" }, [
+            _vm._v("广东话; 廣東話")
+          ]),
+          _vm._v(" "),
+          _c("p", { attrs: { slot: "english" }, slot: "english" }, [
+            _vm._v("english")
+          ]),
+          _vm._v(" "),
+          _c("p", { attrs: { slot: "jyutping" }, slot: "jyutping" }, [
+            _vm._v("jytping")
+          ]),
+          _vm._v(" "),
+          _c("div", { attrs: { slot: "footer" }, slot: "footer" }, [
+            _c("p", [
+              _vm._v(
+                " details: hhkhjvj jjhgvkh hvjdggljgb hfgkjhjkhftdfy hrteryukjljgteyrdv hfueghggjtdgjkgjgc"
+              )
+            ])
+          ])
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-ddbd7d42", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
