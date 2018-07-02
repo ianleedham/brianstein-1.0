@@ -26,7 +26,7 @@
     <div id="app">
         <button
                 type="button"
-                class="btn"
+                class="btn btn-primary"
                 @click="showModal"
         >
             Open Modal!

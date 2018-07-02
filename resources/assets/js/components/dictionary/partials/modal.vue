@@ -86,15 +86,36 @@
         align-items: center;
     }
 
-    .modal {
-        background: #FFFFFF;
-        box-shadow: 2px 2px 20px 1px;
-        overflow-x: auto;
-        display: flex;
-        flex-direction: column;
-        margin:   15% 25% 15% 25%;
 
+    @media only screen and (min-width: 768px) {
+        /* tablets and desktop */
+        .modal {
+            background: #FFFFFF;
+            box-shadow: 2px 2px 20px 1px;
+            overflow-x: auto;
+            display: flex;
+            flex-direction: column;
+            margin: 15% 25% 15% 25%;
+        }
     }
+
+    @media only screen and (max-width: 767px) {
+        /* phones */
+        .modal {
+            background: #FFFFFF;
+            box-shadow: 2px 2px 20px 1px;
+            overflow-x: auto;
+            display: flex;
+            flex-direction: column;
+            margin: 0 25% 25% 0;
+        }
+    }
+
+    @media only screen and (max-width: 767px) and (orientation: portrait) {
+        /* portrait phones */
+    }
+
+
 
     .modal-header,
     .modal-footer {
