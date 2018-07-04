@@ -21,6 +21,7 @@ class CreateCantoneseDictionaryTable extends Migration
             $table->string('cantonese');
             $table->integer('soundAddress');
             $table->integer('type');
+            $table->integer('user_id');
             $table->rememberToken();
         });
     }

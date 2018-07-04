@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
 
+
 });
 
 
@@ -34,5 +35,18 @@ Route::put('dictionary', 'DictionaryApiController@store')->middleware('auth:api'
 
 //Delete word
 Route::delete('dictionary/{id}', 'DictionaryApiController@destroy')->middleware('auth:api');
+
+//login and get 0auth token
+Route::post('login', 'API\UserController@login');
+
+//register for app
+Route::post('register', 'API\UserController@register');
+
+
+Route::group(['middleware' => 'auth:api'], function(){
+
+    Route::post('details', 'API\UserController@details');
+
+});
 
 
