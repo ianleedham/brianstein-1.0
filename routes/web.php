@@ -36,8 +36,7 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('flashcards', function (){ return view('dictionary.flashcards');
-});
+Route::get('flashcards', 'DictionaryController@flashCards');
 
 
 Route::resource('media', 'FilesController');

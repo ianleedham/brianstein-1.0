@@ -22,13 +22,13 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
 
 Route::get('/dictionary', 'DictionaryApiController@index');
 
-Route::get('/whole-dictionary', 'DictionaryApiController@whole');
+Route::get('/whole-dictionary', 'DictionaryApiController@whole')->middleware('auth:api');
 
 //list single word
 Route::get('dictionary/{id}', 'DictionaryApiController@show');
 
 //Create new word
-Route::post('dictionary', 'DictionaryApiController@store')->middleware('auth:api');
+Route::post('dictionary', 'DictionaryApiController@store');//->middleware('auth:api');
 
 //update word
 Route::put('dictionary', 'DictionaryApiController@store')->middleware('auth:api');

@@ -56,7 +56,7 @@ class ResetPassword extends Notification
         }
 
         return (new MailMessage)
-            ->from("admin@brianstein.co.uk", $name = "brianstein")
+            ->from("admin@brianstein.co.uk", $name = "Brianstein")
             ->subject('Password Reset')
             ->line('You are receiving this email because we received a password reset request for your account.')
             ->action('Reset Password', url(config('app.url').route('password.reset', $this->token, false)))

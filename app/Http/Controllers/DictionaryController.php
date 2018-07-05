@@ -201,4 +201,8 @@ class DictionaryController extends Controller
             return view('vue.dictionary')->with('dictionary', $dictionary);
 
     }
+
+    public function flashCards(){
+        return view('dictionary.flashcards');
+    }
 }
