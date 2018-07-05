@@ -3,6 +3,9 @@
         Options -MultiViews -Indexes
     </IfModule>
 
+    Access-Control-Allow-Origin: https://dev.brianstein.co.uk
+
+
     RewriteEngine On
     RewriteBase /
 
