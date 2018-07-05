@@ -25,22 +25,24 @@ Route::get('/dictionary', 'DictionaryApiController@index');
 Route::get('/whole-dictionary', 'DictionaryApiController@whole')->middleware('auth:api');
 
 //list single word
-Route::get('dictionary/{id}', 'DictionaryApiController@show');
+Route::get('/dictionary/{id}', 'DictionaryApiController@show');
 
 //Create new word
-Route::post('dictionary', 'DictionaryApiController@store');//->middleware('auth:api');
+//Route::post('/dictionary', 'DictionaryApiController@store');//->middleware('auth:api');
 
 //update word
-Route::put('dictionary', 'DictionaryApiController@store')->middleware('auth:api');
+Route::put('/dictionary', 'DictionaryApiController@store')->middleware('auth:api');
 
 //Delete word
-Route::delete('dictionary/{id}', 'DictionaryApiController@destroy')->middleware('auth:api');
+Route::delete('/dictionary/{id}', 'DictionaryApiController@destroy')->middleware('auth:api');
 
 //login and get 0auth token
-Route::post('login', 'API\UserController@login');
+Route::post('/login', 'API\UserController@login');
 
 //register for app
-Route::post('register', 'API\UserController@register');
+Route::post('/register', 'API\UserController@register');
+
+Route::post('/dictionary-store','DictionaryApiController@store');
 
 
 Route::group(['middleware' => 'auth:api'], function(){

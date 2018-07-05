@@ -49,7 +49,7 @@
                 };
                 //console.log(data)
 
-                axios.post('/api/dictionary/', data)
+                axios.post('/api/dictionary-store', data)
                     .then((response) => {
                         console.log(response)
                     })
