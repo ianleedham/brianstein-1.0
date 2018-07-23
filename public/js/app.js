@@ -17701,6 +17701,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17791,7 +17792,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.modal-backdrop {\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    background-color: rgba(0, 0, 0, 0.3);\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n@media only screen and (min-width: 768px) {\n    /* tablets and desktop */\n.modal {\n        background: #FFFFFF;\n        -webkit-box-shadow: 2px 2px 20px 1px;\n                box-shadow: 2px 2px 20px 1px;\n        overflow-x: auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        margin: 12% auto 12% auto;\n}\n}\n@media only screen and (max-width: 767px) {\n    /* phones */\n.modal {\n        background: #FFFFFF;\n        -webkit-box-shadow: 2px 2px 20px 1px;\n                box-shadow: 2px 2px 20px 1px;\n        overflow-x: auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        margin-bottom: 30%;\n        margin-top: 100px;\n}\n}\n@media only screen and (max-width: 767px) and (orientation: portrait) {\n    /* portrait phones */\n}\n.bn{\n    margin-left: auto;\n    margin-right: auto;\n}\n.modal-header{\n    padding: 15px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.modal-footer {\n    padding: 15px;\n}\n.modal-header {\n    border-bottom: 1px solid #eeeeee;\n    color: #4AAE9B;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n.modal-body {\n    position: relative;\n    padding: 20px 10px;\n}\n.btn-close {\n    border: none;\n    font-size: 20px;\n    padding: 20px;\n    cursor: pointer;\n    font-weight: bold;\n    color: #4AAE9B;\n    background: transparent;\n}\n.btn-green {\n    color: white;\n    background: #4AAE9B;\n    border: 1px solid #4AAE9B;\n    border-radius: 2px;\n}\n.cantonese-slot, .jyutping-slot, .english-slot {\n    font-size: 35px;\n}\n.play-button {\n    max-width: 90px;\n    margin: 1% auto 1% auto;\n}\n", ""]);
+exports.push([module.i, "\n.modal-backdrop {\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    background-color: rgba(0, 0, 0, 0.3);\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n@media only screen and (min-width: 768px) {\n    /* tablets and desktop */\n.modal {\n        background: #FFFFFF;\n        -webkit-box-shadow: 2px 2px 20px 1px;\n                box-shadow: 2px 2px 20px 1px;\n        overflow-x: auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        margin: 10% auto 10% auto;\n}\n}\n@media only screen and (max-width: 767px) {\n    /* phones */\n.modal {\n        background: #FFFFFF;\n        -webkit-box-shadow: 2px 2px 20px 1px;\n                box-shadow: 2px 2px 20px 1px;\n        overflow-x: auto;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        margin-bottom: 30%;\n        margin-top: 100px;\n}\n}\n@media only screen and (max-width: 767px) and (orientation: portrait) {\n    /* portrait phones */\n}\n.bn{\n    margin-left: auto;\n    margin-right: auto;\n}\n.modal-header{\n    padding: 15px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.modal-footer {\n    padding: 15px;\n}\n.modal-header {\n    border-bottom: 1px solid #eeeeee;\n    color: #4AAE9B;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n.modal-body {\n    position: relative;\n    padding: 20px 10px;\n}\n.btn-close {\n    border: none;\n    font-size: 20px;\n    padding: 20px;\n    cursor: pointer;\n    font-weight: bold;\n    color: #4AAE9B;\n    background: transparent;\n}\n.btn-green {\n    color: white;\n    background: #4AAE9B;\n    border: 1px solid #4AAE9B;\n    border-radius: 2px;\n}\n.cantonese-slot, .jyutping-slot, .english-slot {\n    font-size: 35px;\n}\n.play-button {\n    max-width: 90px;\n    margin: 1% auto 1% auto;\n}\n", ""]);
 
 // exports
 
@@ -17824,6 +17825,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImE1NDE3NDE3MDdlNWFlZGE3MWUxMGU2NmYxNzk2MmY0MzIzYmZhNTEyMTI3Nzg1YmE0ZmM1Nzk2MWRmZGYwOWFmMmUwOWZmNGE1ODhkMzM4In0.eyJhdWQiOiIyIiwianRpIjoiYTU0MTc0MTcwN2U1YWVkYTcxZTEwZTY2ZjE3OTYyZjQzMjNiZmE1MTIxMjc3ODViYTRmYzU3OTYxZGZkZjA5YWYyZTA5ZmY0YTU4OGQzMzgiLCJpYXQiOjE1MjY4MzcxMDEsIm5iZiI6MTUyNjgzNzEwMSwiZXhwIjoxNTU4MzczMTAxLCJzdWIiOiI2Iiwic2NvcGVzIjpbIioiXX0.Q0MNJn9W6wB67Ty2CIevG7bXzZCzNO0XxGtl9JqaYd9luC39eCFD8pbzTkT_YgXoL5CjiV0LjV8NbMBOYMZ26LsWNzeku05nIv92zFkbHJBiv2OTWLVBIZ4e39jFp6gLat--SkdJaOBAPheiSFJEwSIaTA1VbsveM4LtsaUAs0UKsuOJEjnkx3yUiahg8W32JC19MT5P1osD7ckes8rnA_XDjgvKbBPb1FlhAR3yN3KNNQjiQV_pqjJrwyGW-RKvxG3_YvUJAyzPW9f7Y9sTDKxeQDIPZ8b8quWlWaSVO93wtd6evmhq_YMWsecojyqh1kxb1Uosq-oblyJL3lpgqE45RdbKlWZDW6ObvHcdC_tFMx2CTgnhf99rrKPcQIQ8QO9wG4j8O_uQh17OjPnNz7FVh-2HHPCTLp5m-tsHjKu6H2ewBSK6PNrHp7cxjF8VI28OkcJz-kzSc3zTA5L3SPElcSxC036xlVT6SsW-oEBZus2KLwBeZB1JzzpgyXPshGy3ZQZL0tXmr7t-boU5dvw4EIsP11V-WjyBoEbbMajzGSbJ8BaIu663XktFm_tGBk9objmV0AD0Yzigrleq3Cavph9_5FT4GvSXResMk3pI1m7Cbsq6feCC6EHXMwcLu9ZD0nXt0TJfk1vEPTfgbpoO8ED8uKWAsZUC9x5v6uY"
                 }
             }).then(function (response) {
+                console.log('word deleted');
                 _this.$emit('word:deleted', 1); //todo check this
             });
         }
@@ -17861,12 +17863,12 @@ var render = function() {
             "header",
             { staticClass: "modal-header", attrs: { id: "modalTitle" } },
             [
-              _vm._t("header", [_c("div", { staticClass: "col-md-8" })]),
+              _vm._t("header"),
               _vm._v(" "),
               _c(
                 "button",
                 {
-                  staticClass: "btn-close float-right",
+                  staticClass: "btn-close",
                   attrs: { type: "button", "aria-label": "Close modal" },
                   on: { click: _vm.close }
                 },
@@ -18012,7 +18014,12 @@ var render = function() {
             }
           ],
           attrs: { word: _vm.word },
-          on: { close: _vm.closeModal }
+          on: {
+            "word:deleted": function($event) {
+              this.$emit("word:deleted", 1)
+            },
+            close: _vm.closeModal
+          }
         },
         [
           _c("p", { attrs: { slot: "cantonese" }, slot: "cantonese" }, [
