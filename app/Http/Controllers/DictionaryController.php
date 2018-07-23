@@ -19,7 +19,7 @@ class DictionaryController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['vue', 'index', 'show']]);
     }
 
     /**
@@ -117,6 +117,7 @@ class DictionaryController extends Controller
 
         $user_owns_post = auth()->user()->id ===$word->user_id;
 
+        return view('dictionary.edit')->with('word', $word);
 
         // Check for correct user
         if(!$user_owns_post||!$canEditCantonese) {
