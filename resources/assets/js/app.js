@@ -1,4 +1,7 @@
 
+import VueRouter from 'vue-router';
+import router from './routes';
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -8,6 +11,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+Vue.use(VueRouter);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -17,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component(     'dictionary-view', require('./components/dictionary/dictionary.vue')  );
 Vue.component(     'flash-cards', require('./components/dictionary/flashcards/flashcards.vue')  );
+Vue.component(     'brians-canvas-two', require('./components/brians_canvas/index.vue')  );
 Vue.component(
     'passport-clients',
     require('./components/passport/Clients.vue')
@@ -34,4 +39,5 @@ Vue.component(
 
 const app = new Vue({
     el: '#app',
+    router
 });

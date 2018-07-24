@@ -6,9 +6,12 @@
         components: {
             modal,
         },
+        props: ['word'],
         data () {
             return {
                 isModalVisible: false,
+                soundAddress: null
+
             };
         },
         methods: {
@@ -17,8 +20,20 @@
             },
             closeModal() {
                 this.isModalVisible = false;
-            }
+            },
+            play: function (event) {
+                this.$refs.audioElm.play();
+            },
         },
+        computed: {
+            shouldHaveAudio() {
+                this.soundAddress = this.word.soundAddress
+                if(this.word.soundAddress  !== null){
+                    console.log(this.soundAddress)
+                    return true
+                }else return false
+            }
+        }
     };
 </script>
 
@@ -29,19 +44,24 @@
                 class="btn btn-primary"
                 @click="showModal"
         >
-            Open Modal!
+            More Info
         </button>
 
         <modal
                 v-show="isModalVisible"
                 @close="closeModal"
+                v-bind:word="word"
         >
-            <audio ref="audioElm" :src="'/storage/sounds/' + 'sam' + '.mp3'"></audio>
-            <p slot="cantonese">广东话; 廣東話</p>
-            <p slot="english">english</p>
-            <p slot="jyutping">jytping</p>
+            <p slot="cantonese">{{word.cantonese}}</p>
+            <p slot="english">{{word.english}}</p>
+            <p slot="jyutping">{{word.jyutping}}</p>
             <div slot="footer">
-                <p> details: hhkhjvj jjhgvkh hvjdggljgb hfgkjhjkhftdfy hrteryukjljgteyrdv hfueghggjtdgjkgjgc</p>
+                <p> </p>
+            </div>
+            <div slot="audio" v-show="shouldHaveAudio">
+                <img v-on:click="play" class="btn play-button"
+                     src="/storage/images/Play-Button-PNG-Picture.png" />
+                <audio  ref="audioElm" v-show="true"  :src="'/storage/sounds/' + word.soundAddress + '.mp3'"></audio>
             </div>
         </modal>
     </div>

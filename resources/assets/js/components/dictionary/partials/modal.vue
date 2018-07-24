@@ -1,5 +1,6 @@
 <script>
     export default {
+        props: ['word'],
         name: 'modal',
         methods: {
             close() {
@@ -8,7 +9,19 @@
             play: function (event) {
                 this.$refs.audioElm.play();
             },
+            Delete: function (event) {
+
+                    console.log('word deleted');
+                    this.$emit('word:deleted', 1)//todo check this
+
+            },
         },
+        computed: {
+            url () {
+                return '/dictionary/'+this.word.id+'/edit'
+            }
+        },
+
     };
 </script>
 <template>
@@ -24,9 +37,11 @@
                         id="modalTitle"
                 >
                     <slot name="header">
+<!--
 
                         level: 1
                         <button class="btn btn-primary">add to custom list</button>
+-->
 
                     </slot>
                     <button
@@ -48,11 +63,9 @@
                                 <slot name="cantonese" >
                                     广东话; 廣東話
                                 </slot>
+                                <slot name="audio"></slot>
                             </p>
-                            <slot name="sound">
-                                <audio ref="audioElm" :src="'/storage/sounds/' + 'sam' + '.mp3'"></audio>
-                            </slot>
-                            <img v-on:click="play" class="btn play-button"  src="/storage/images/Play-Button-PNG-Picture.png"  />
+                            <slot name="sound"></slot>
 
                         </div>
                         <div class="col">
@@ -67,15 +80,17 @@
                                     english
                                 </slot>
                             </p>
-
                         </div>
 
                     </div>
                 </section>
                 <footer class="modal-footer">
-                    <slot name="footer">
-                        <p> details: hhkhjvj jjhgvkh hvjdggljgb hfgkjhjkhftdfy hrteryukjljgteyrdv hfueghggjtdgjkgjgc</p>
-                    </slot>
+                    <a class="btn btn-danger bn" v-on:click.prevent="Delete">
+                        delete
+                    </a>
+                    <a class="btn bn" v-bind:href=url>
+                        Edit
+                    </a>
                 </footer>
 
             </div>
@@ -93,8 +108,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 2;
     }
-
+.modal{
+    z-index: 3;
+}
 
     @media only screen and (min-width: 768px) {
         /* tablets and desktop */
@@ -104,7 +122,7 @@
             overflow-x: auto;
             display: flex;
             flex-direction: column;
-            margin: 10% auto 10% auto;
+            margin: 2rem auto 2rem auto;
         }
     }
 
@@ -125,6 +143,10 @@
         /* portrait phones */
     }
 
+    .bn{
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 
     .modal-header{

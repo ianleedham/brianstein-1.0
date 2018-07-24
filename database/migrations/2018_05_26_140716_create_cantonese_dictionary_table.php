@@ -34,6 +34,5 @@ class CreateCantoneseDictionaryTable extends Migration
     public function down()
     {
         Schema::dropIfExists('Cantonese');
-
     }
 }

@@ -1,25 +1,22 @@
 <template lang="html">
     <div class="dictionary">
         <div v-show="words.length===0" class="empty"><p>nothing here yet</p></div>
-
+        <div class="text-center" style="padding-top: 10px">
+            <a class="btn btn-dark " href="/dictionary/create">Add Word</a>
+        </div>
         <!--   [{"wordid":1,"english":"Heart","jyutping":"sam","cantonese":"\u5fc3","soundAddress":"sam.3gp","type":"1","syncsts":0}-->
         <div class="table-responsive">
             <table class="table table-hover ">
                 <thead>
                 <tr>
-                    <th v-on:click.prevent="changeOrder('english')" ref="english_title">
+                    <th class="col-md-3" v-on:click.prevent="changeOrder('english')" ref="english_title">
                         <a href="#">English</a>
                     </th>
-                    <th v-on:click.prevent="changeOrder('cantonese')" >
+                    <th class="col-md-3" v-on:click.prevent="changeOrder('cantonese')" >
                         <a href="#">Cantonese</a>
                     </th>
-                    <th v-on:click.prevent="changeOrder('jyutping')" >
+                    <th class="col-md-3" v-on:click.prevent="changeOrder('jyutping')" >
                         <a href="#">Jyutping</a>
-                    </th>
-                    <th>
-                        <div class="col-md-1 col-sm-1 text-center" style="padding-top: 10px">
-                            <a class="btn btn-dark " href="/dictionary/create">Add Word</a>
-                        </div>
                     </th>
                 </tr>
                 </thead>
@@ -30,7 +27,6 @@
                 </tbody>
             </table>
             <pagination :meta="meta" v-on:pagination:switched="getwords"></pagination>
-            <modal></modal>
         </div>
 
     </div>
@@ -54,7 +50,6 @@
                 order: 'asc',
                 words: [],
                 meta: {},
-                isModalVisible: false,
             }
         },
         computed: {
@@ -68,11 +63,14 @@
                         order: this.order,
                     }
                 }).then((response) => {
-                    console.log(response)
+                    //console.log(response);
                     this.words = response.data.data;
                     this.meta = response.data.meta;
                 })
         },
+            play: function (event) {
+                this.$refs.audioElm.play();
+            },
             changeOrder: function (button) {
                 if (this.sortby===button){
                     if (this.order ==='asc'){
@@ -104,5 +102,9 @@
     .empty {
         padding: 1rem;
         text-align: center;
+    }
+
+    .col-md-3{
+        width: 25%;
     }
 </style>
