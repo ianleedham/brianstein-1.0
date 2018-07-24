@@ -12,6 +12,6 @@
         I gained a lot from this course including teamwork, essay writing, working to tight deadlines under a lot of
         pressure and how to communicate effectively to people of different knowledge and personalities.
         <br />
-        I gained a lot from the PGCE however I believe teaching is not my future as it is programming which is my
-        passion and has been since I started teaching myself straight after university.</p>
+        It is programming which is my passion and has been since I started teaching myself straight after university.
+        I love the ability to create any technology I can imagine</p>
 @endsection
