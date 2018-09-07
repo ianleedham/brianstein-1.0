@@ -21,20 +21,23 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
 
 
 Route::get('/dictionary', 'DictionaryApiController@index');
+Route::get('/app-dictionary', 'DictionaryApiController@app_dictionary');
 
 Route::get('/whole-dictionary', 'DictionaryApiController@whole')->middleware('auth:api');
+
+Route::resource('/posts', 'API\PostsController');//->middleware('auth:api');
 
 //list single word
 Route::get('/dictionary/{id}', 'DictionaryApiController@show');
 
 //Create new word
-//Route::post('/dictionary', 'DictionaryApiController@store');//->middleware('auth:api');
+Route::post('/dictionary', 'DictionaryApiController@store');//->middleware('auth:api');
 
 //update word
-Route::put('/dictionary', 'DictionaryApiController@store')->middleware('auth:api');
+Route::put('/dictionary', 'DictionaryApiController@store');//->middleware('auth:api');
 
 //Delete word
-Route::delete('/dictionary/{id}', 'DictionaryApiController@destroy')->middleware('auth:api');
+Route::delete('/dictionary/{id}', 'DictionaryApiController@destroy');//->middleware('auth:api');
 
 //login and get 0auth token
 Route::post('/login', 'API\UserController@login');

@@ -34,6 +34,15 @@ class DictionaryApiController extends Controller
         }
 
 
+    public function app_dictionary()
+    {
+
+            $dictionary = Word::with('user')->orderBy('created_at','desc')->paginate(10);
+
+
+        return $dictionary;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
