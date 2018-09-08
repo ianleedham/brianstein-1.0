@@ -53,8 +53,6 @@
                     this.dictionary = response.data.data;
                     this.dictionary_length= this.dictionary.length;
                     console.log(this.dictionary_length);
-
-
                 })
             },
             word_clicked(Index=0) {

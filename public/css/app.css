@@ -10440,3 +10440,324 @@ a.text-dark:focus {
   background-color: #ddd;
 }
 
+.portfolio {
+  display: grid;
+  height: 100%;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+  background: royalblue;
+  padding: 1%;
+}
+
+.portfolio-item {
+  padding: 3%;
+  font-size: 1.5em;
+  background-size: cover;
+  -webkit-transition: all ease-in-out 400ms;
+  transition: all ease-in-out 400ms;
+  z-index: 1;
+  position: relative;
+  background-position: center;
+  cursor: pointer;
+  color: white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.85);
+}
+
+.portfolio-item.small {
+  grid-row: span 1;
+  grid-column: span 1;
+}
+
+.portfolio-item.medium {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+
+.portfolio-item.large {
+  grid-row: span 3;
+  grid-column: span 3;
+}
+
+.portfolio-item.tall {
+  grid-row: span 5;
+  grid-column: span 2;
+}
+
+.portfolio-item.small-tall {
+  grid-row: span 2;
+  grid-column: span 1;
+}
+
+.portfolio-item.wide {
+  grid-row: span 2;
+  grid-column: span 3;
+}
+
+.portfolio-item.large-wide {
+  grid-row: span 3;
+  grid-column: span 5;
+}
+
+.portfolio-item.thin-tall {
+  grid-row: span 3;
+  grid-column: span 1;
+}
+
+.portfolio-item:hover {
+  color: black;
+  text-shadow: 0 0 5px white;
+}
+
+.portfolio-item div {
+  display: block;
+}
+
+.portfolio-item.one {
+  position: relative;
+  -webkit-transition: all ease-in-out 1s;
+  transition: all ease-in-out 1s;
+  max-height: 100%;
+  background-image: url("/storage/websiteImages/TravellingMuse.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.portfolio-item.two {
+  background-image: url("/storage/websiteImages/globe-quote.jpg");
+}
+
+.portfolio-item.three {
+  background-image: url("/storage/websiteImages/arcadegame.png");
+  background-position: center;
+}
+
+.portfolio-item.four {
+  background-image: url("/storage/websiteImages/canvas-bubbles.png");
+}
+
+.portfolio-item.five {
+  background-image: url("/storage/websiteImages/vue.jpeg");
+}
+
+.portfolio-item:hover {
+  z-index: 10;
+  max-height: 1000px;
+}
+
+.portfolio-item::before {
+  content: '';
+  display: block;
+  background: #000;
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: all ease-in-out 600ms;
+  transition: all ease-in-out 600ms;
+  z-index: -1;
+}
+
+.portfolio-item:hover::before {
+  opacity: 0.1;
+}
+
+@media (max-width: 750px) {
+  .portfolio {
+    display: grid;
+    height: 100%;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+  }
+
+  .main-content {
+    padding: 2%;
+  }
+
+  .portfolio-item.one,
+  .portfolio-item.two,
+  .portfolio-item.three,
+  .portfolio-item.four,
+  .portfolio-item.five {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 400px) {
+  .main-content {
+    padding: 0;
+  }
+
+  .portfolio {
+    display: grid;
+    height: 100%;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+
+  .portfolio-item {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+}
+
+.portfolio-item-title {
+  font-size: 1em;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 1%;
+}
+
+.portfolio-item-body {
+  font-size: 0.5em;
+  display: inline-block;
+  position: relative;
+}
+
+.projects {
+  margin-top: 30%;
+}
+
+.projects div {
+  padding: 1%;
+  border: solid rebeccapurple;
+  margin-bottom: 2%;
+}
+
+.projects div * {
+  padding: 1%;
+}
+
+.projects button:hover {
+  cursor: pointer;
+}
+
+.dictionary-app .img-tall {
+  width: 19%;
+}
+
+.dictionary-app .img-wide {
+  width: 60%;
+}
+
+.dictionary-app div {
+  border: none;
+  margin: 3%;
+}
+
+@media (max-width: 650px) {
+  .dictionary-app .img-tall {
+    width: 49%;
+  }
+
+  .dictionary-app .img-wide {
+    width: 100%;
+  }
+}
+
+.travellingmuse img {
+  width: 100%;
+}
+
+.travellingmuse ul li {
+  margin-bottom: 1%;
+  padding: 0;
+}
+
+.travellingmuse div {
+  margin: 3%;
+  border: none;
+}
+
+.travellingmuse button {
+  width: 100%;
+}
+
+.vue-dictionary img {
+  width: 49%;
+  float: left;
+}
+
+.vue-dictionary p {
+  width: 49%;
+  float: right;
+}
+
+.vue-dictionary button {
+  width: 100%;
+}
+
+.canvas img {
+  width: 49%;
+}
+
+.canvas p {
+  width: 49%;
+  float: left;
+}
+
+.canvas button {
+  width: 100%;
+}
+
+.arcadegame img {
+  width: 49%;
+}
+
+.arcadegame p {
+  width: 49%;
+  float: right;
+}
+
+.arcadegame button {
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .vue-dictionary img {
+    width: 100%;
+    float: left;
+  }
+
+  .vue-dictionary p {
+    width: 100%;
+    float: right;
+  }
+
+  .vue-dictionary button {
+    width: 100%;
+  }
+
+  .canvas img {
+    width: 100%;
+  }
+
+  .canvas p {
+    width: 100%;
+    float: left;
+  }
+
+  .canvas button {
+    width: 100%;
+  }
+
+  .arcadegame img {
+    width: 100%;
+  }
+
+  .arcadegame p {
+    width: 100%;
+    float: right;
+  }
+
+  .arcadegame button {
+    width: 100%;
+  }
+}
+

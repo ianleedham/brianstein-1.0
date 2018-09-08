@@ -11,4 +11,7 @@
             and the protocols implemented.</p>
         <h4>Please register in the top right corner to test out the website fully</h4>
     </div>
+
+<portfolio></portfolio>
+
 @endsection

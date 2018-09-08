@@ -22,10 +22,13 @@ Vue.use(VueRouter);
 Vue.component(     'dictionary-view', require('./components/dictionary/dictionary.vue')  );
 Vue.component(     'flash-cards', require('./components/dictionary/flashcards/flashcards.vue')  );
 Vue.component(     'brians-canvas-two', require('./components/brians_canvas/index.vue')  );
+Vue.component(     'quiz', require('./components/quiz/index.vue')  );
+Vue.component(     'portfolio', require('./components/index/projects.vue')  );
 Vue.component(
     'passport-clients',
     require('./components/passport/Clients.vue')
 );
+
 
 Vue.component(
     'passport-authorized-clients',

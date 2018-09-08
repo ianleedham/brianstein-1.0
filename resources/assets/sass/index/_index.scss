@@ -1,0 +1,140 @@
+.projects{
+  margin-top: 30%;
+  & div{
+    padding: 1%;
+    border: solid rebeccapurple;
+    margin-bottom: 2%;
+  }
+  & div *{
+    padding: 1%;
+  }
+  & button:hover{
+    cursor: pointer;
+  }
+}
+
+.dictionary-app {
+  & .img-tall {
+    width: 19%;
+  }
+  & .img-wide {
+    width: 60%;
+  }
+  & div {
+    border: none;
+    margin: 3%;
+  }
+}
+
+@media (max-width: 650px) {
+  .dictionary-app .img-tall{
+    width: 49%;
+  }
+  .dictionary-app .img-wide{
+    width: 100%;
+  }
+}
+
+.travellingmuse {
+  & img {
+    width: 100%;
+  }
+  & ul{
+
+  }
+  & ul li{
+    margin-bottom: 1%;
+    padding: 0;
+  }
+  & div{
+    margin: 3%;
+    border: none;
+  }
+  & button{
+    width: 100%;
+  }
+}
+.vue-dictionary{
+  & img{
+    width: 49%;
+    float: left;
+  }
+  & p{
+    width: 49%;
+    float: right;
+  }
+  & button{
+    width: 100%;
+  }
+}
+
+.canvas{
+  & img{
+    width: 49%;
+  //  float: right;
+  }
+  & p{
+    width: 49%;
+    float: left;
+  }
+  & button {
+    width: 100%;
+  }
+}
+.arcadegame{
+  & img{
+    width: 49%;
+//    float: left;
+  }
+  & p{
+    width: 49%;
+    float: right;
+  }
+  & button{
+    width: 100%;
+  }
+}
+//700px
+@media (max-width: 700px) {
+  .vue-dictionary{
+    & img{
+      width: 100%;
+      float: left;
+    }
+    & p{
+      width: 100%;
+      float: right;
+    }
+    & button{
+      width: 100%;
+    }
+  }
+
+
+  .canvas{
+    & img{
+      width: 100%;
+      //  float: right;
+    }
+    & p{
+      width: 100%;
+      float: left;
+    }
+    & button {
+      width: 100%;
+    }
+  }
+  .arcadegame{
+    & img{
+      width: 100%;
+      //    float: left;
+    }
+    & p{
+      width: 100%;
+      float: right;
+    }
+    & button{
+      width: 100%;
+    }
+  }
+}

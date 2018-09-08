@@ -56,7 +56,7 @@
         },
         methods: {
             getwords (page = 1) {
-                axios.get('/api/dictionary', {
+                axios.get('/dictionary', {
                     params: {
                         page: page,
                         sortby: this.sortby,

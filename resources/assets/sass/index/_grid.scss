@@ -1,0 +1,189 @@
+
+
+// ===================
+// Portfolio
+// ===================
+
+.portfolio {
+  display: grid;
+  height: 100%;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+  background: royalblue;
+  padding: 1%;
+}
+
+.portfolio-item {
+  //background: $accent;
+  //color: $light-gray;
+  //font-weight: $font-bold;
+  padding: 3%;
+
+  // Refractored the code a little from the video.
+  // Moved these from the .two, thought it made
+  // more sense like this.
+  font-size: 1.5em;
+  background-size: cover;
+  transition: all ease-in-out 400ms;
+  z-index: 1;
+  position: relative;
+  background-position: center;
+  cursor: pointer;
+
+  color: white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.85);
+
+  &.small {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+
+  &.medium {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+
+  &.large {
+    grid-row: span 3;
+    grid-column: span 3;
+  }
+
+  &.tall {
+    grid-row: span 5;
+    grid-column: span 2;
+  }
+
+  &.small-tall {
+    grid-row: span 2;
+    grid-column: span 1;
+  }
+  &.wide {
+    grid-row: span 2;
+    grid-column: span 3;
+  }
+  &.large-wide {
+    grid-row: span 3;
+    grid-column: span 5;
+  }
+  &.thin-tall {
+    grid-row: span 3;
+    grid-column: span 1;
+  }
+
+  &:hover {
+    color: black;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 1);
+  }
+
+  & div {
+    display: block;
+  }
+
+  &.one {
+    position: relative;
+    transition: all ease-in-out 1s;
+    //height: 600px;
+    max-height: 100%;
+    background-image: url("/storage/websiteImages/TravellingMuse.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &.two {
+    background-image: url("/storage/websiteImages/globe-quote.jpg");
+
+  }
+
+  &.three {
+    background-image: url("/storage/websiteImages/arcadegame.png");
+    background-position: center;
+  }
+  &.four{
+    background-image: url("/storage/websiteImages/canvas-bubbles.png");
+  }
+  &.five{
+    background-image: url("/storage/websiteImages/vue.jpeg");
+
+  }
+  &:hover {
+    z-index: 10;
+    max-height: 1000px;
+
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    background: $black;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: all ease-in-out 600ms;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    opacity: 0.1;
+  }
+}
+
+//750px
+@media (max-width: 750px) {
+
+  .portfolio {
+    display: grid;
+    height: 100%;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+  }
+
+  .main-content{
+    padding: 2%;
+  }
+  .portfolio{
+
+  }
+  .portfolio-item{
+  &.one, &.two,&.three,&.four,&.five{
+      grid-row: span 2;
+      grid-column: span 2;
+
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .main-content{
+    padding: 0;
+  }
+  .portfolio {
+    display: grid;
+    height: 100%;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+
+  .portfolio-item {
+      grid-row: span 2;
+      grid-column: span 2;
+    }
+  }
+
+
+.portfolio-item-title{
+  font-size: 1em;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 1%;
+}
+.portfolio-item-body{
+  font-size: 0.5em;
+  display: inline-block;
+  position: relative;
+}
