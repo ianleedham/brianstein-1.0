@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'PagesController@index');
 
+//Route::get('/vueRouter', function (){return view('vue.vueRouter');});
+
 Route::get('/about', 'PagesController@about')->name('about');
 
 Route::get('/projects', 'PagesController@services');
@@ -37,12 +39,16 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('flashcards', 'DictionaryController@flashCards');
+Route::get('multipleChoice', 'quizController@english_cantonese_multiple_choice');
+Route::get('reverseMultipleChoice', 'quizController@reverseMultipleChoice');
+
 
 
 Route::resource('media', 'FilesController');
 
 Route::post('/changepassword/submit', 'ChangePasswordController@postCredentials');
 
+Route::get('getDictionary', 'DictionaryController@get');
 Route::resource('dictionary', 'DictionaryController');
 
 Route::resource('posts', 'PostsController');
@@ -51,3 +57,6 @@ Auth::routes();
 
 Route::post('/send', 'EmailController@send');
 
+Route::get('grid', function (){
+    return view('pages.grid');
+});

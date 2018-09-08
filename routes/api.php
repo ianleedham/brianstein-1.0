@@ -21,7 +21,7 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
 
 
 Route::get('/dictionary', 'DictionaryApiController@index');
-Route::get('/app-dictionary', 'DictionaryApiController@app_dictionary');
+Route::get('/appDictionary', 'DictionaryApiController@index');
 
 Route::get('/whole-dictionary', 'DictionaryApiController@whole')->middleware('auth:api');
 

@@ -63,7 +63,7 @@
                         order: this.order,
                     }
                 }).then((response) => {
-                    //console.log(response);
+                    console.log(response);
                     this.words = response.data.data;
                     this.meta = response.data.meta;
                 })

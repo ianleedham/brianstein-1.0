@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
 
         {!! Form::open(['action' => 'FilesController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="form-group">

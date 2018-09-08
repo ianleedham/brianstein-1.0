@@ -9,7 +9,7 @@ class EmailController extends Controller
     public function send(Request $request)
     {
 
-/*        $message->from($address, $name = null);
+/*      $message->from($address, $name = null);
         $message->sender($address, $name = null);
         $message->to($address, $name = null);
         $message->cc($address, $name = null);

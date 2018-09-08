@@ -15,33 +15,17 @@ class DictionaryApiController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return WordCollection
+     * @return word[]|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
      */
     public function index()
     {
 
-        $sortby = Input::get('sortby');
-        $order = Input::get('order');
-
-
-        if ($sortby && $order) {
-            $dictionary = Word::with('user')->orderBy($sortby, $order)->paginate(10);
-        } else {
-            $dictionary = Word::with('user')->orderBy('created_at','desc')->paginate(10);
-        }
-
-        return new WordCollection($dictionary);
-        }
-
-
-    public function app_dictionary()
-    {
-
-            $dictionary = Word::with('user')->orderBy('created_at','desc')->paginate(10);
-
+        $dictionary = Word::with('user')->orderBy('created_at','desc')->get();
 
         return $dictionary;
-    }
+        }
+
+
 
     /**
      * Store a newly created resource in storage.

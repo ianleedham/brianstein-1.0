@@ -19,13 +19,11 @@
             .my-content {
                 padding: 4rem
             }
-
         }
         @media only screen and (max-width: 1000px) {
             .my-content {
                 padding: 0.5rem
             }
-
         }
     </style>
 
@@ -35,7 +33,7 @@
 @include('inc.responsive-navbar')
 
 <div id="app" >
-    @include('inc.other.messages')
+    @include('inc.messages')
 
     <div class="my-content">
         @yield('content')
