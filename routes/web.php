@@ -48,7 +48,6 @@ Route::resource('media', 'FilesController');
 
 Route::post('/changepassword/submit', 'ChangePasswordController@postCredentials');
 
-Route::get('getDictionary', 'DictionaryController@get');
 Route::resource('dictionary', 'DictionaryController');
 
 Route::resource('posts', 'PostsController');
@@ -57,6 +56,4 @@ Auth::routes();
 
 Route::post('/send', 'EmailController@send');
 
-Route::get('grid', function (){
-    return view('pages.grid');
-});
+

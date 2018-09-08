@@ -1,16 +1,18 @@
 <template>
     <div>
         <div class="portfolio ">
-            <div class="tall portfolio-item  one" v-on:click="scrollToDictionary('#vueDictionary')">
-                Cantonese Dictionary App</div>
-            <div class="large portfolio-item five" v-on:click="scrollToDictionary('#mobDictionary')" >
-                <div class="portfolio-item-title">Cantonese Dictionary</div>
-                <div class="portfolio-item-body">My first real project in </div>
+            <div class="tall portfolio-item  one" v-on:click="scrollToDictionary('#mobDictionary')">
+                <div>Cantonese Dictionary mobile App</div>
+                <div>My first real programming project</div>
+            </div>
+            <div class="large portfolio-item five" v-on:click="scrollToDictionary('#vueDictionary')" >
+                <div class="portfolio-item-title">Cantonese Dictionary vue component</div>
+                <div class="portfolio-item-body"> The counterpart to the mobile version</div>
             </div>
             <div class="small-tall portfolio-item three" v-on:click="scrollToDictionary('#arcadeGame')">Arcade Game</div>
             <div class="medium portfolio-item four" v-on:click="scrollToDictionary('#canvas')" >
                 <h3>
-                    canvas  /websiteImages/canvas-bubbles.png
+                    A canvas element graphic.
                 </h3>
             </div>
             <div class="large-wide portfolio-item  two" v-on:click="scrollToDictionary('#TravellingMuse')">
@@ -21,6 +23,9 @@
                 </div>
             </div>
         </div>
+
+
+
 
         <div class="projects">
             <div class="travellingmuse" id="TravellingMuse">
@@ -50,8 +55,9 @@
                             <li>Google analytics</li>
                         </ul>
                 </div>
-                <a href="www.dev.travellingmuse.co.uk"><button>Travellingmuse.co.uk</button></a>
+                <a class="row" href="http://dev.travellingmuse.co.uk"><button>Go to Travellingmuse.co.uk</button></a>
             </div>
+
             <div class="dictionary-app" id="mobDictionary" >
                 <h1>Mobile cantonese dictionary</h1>
                 <img class="img-tall" src="storage/websiteImages/Screenshot_20180615-133656.jpg">
@@ -63,7 +69,7 @@
                             Features of dictionary:
                         </li>
                         <li>
-                            Android studio Java Xml
+                            Android studio using Java, Xml http calls and Sqlite
                         </li>
                         <li>
                             Built which Going through my android studio scholarship
@@ -94,7 +100,7 @@
 
             <div class="vue-dictionary"  ref="vueDictionary"  id="vueDictionary">
                 <h2>Cantonese Dictionary in Vue.js</h2>
-                <img class="" src="storage/websiteImages/vue.jpeg">
+                <img class="" src="storage/websiteImages/CantoneseDictionary.png">
                 <p>
                     Connects using axios to the same database as the mobile version.
                 </p>
@@ -107,7 +113,7 @@
                 <p>
                     Each word can fill a modal with information when clicked on.
                 </p>
-                <a href="/vue-dictiona y"><button>Go to the vue dictionary</button></a>
+                <a class="" href="/vue-dictionary"><button>Go to the vue dictionary</button></a>
             </div>
             <div class="canvas" id="canvas">
                 <h2>Graphical canvas bubbles</h2>
@@ -117,7 +123,7 @@
                     sides and react to the mouse.
                 </p>
                 <img class="" src="storage/websiteImages/canvas-bubbles.png">
-                <a href="https://canvas.brianstein.co.uk/"><button>Go to the canvas</button></a>
+                <a class="row" href="https://canvas.brianstein.co.uk/"><button>Go to the canvas</button></a>
             </div>
             <div class="arcadegame" id="arcadeGame">
                 <h2>Arcade game</h2>
@@ -127,7 +133,7 @@
                     https://arcade-game.brianstein.co.uk/
                 </p>
                 <img class="" src="storage/websiteImages/arcadegame.png">
-                <a href="https://arcade-game.brianstein.co.uk/"><button>Go to the arcade game</button></a>
+                <a class="row" href="https://arcade-game.brianstein.co.uk/"><button>Go to the arcade game</button></a>
 
             </div>
         </div>

@@ -10,7 +10,7 @@
   grid-template-rows: repeat(8, 1fr);
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 20px;
-  background: royalblue;
+  background: gray;
   padding: 1%;
 }
 
@@ -85,13 +85,13 @@
     transition: all ease-in-out 1s;
     //height: 600px;
     max-height: 100%;
-    background-image: url("/storage/websiteImages/TravellingMuse.png");
+    background-image: url("/storage/websiteImages/Screenshot_20180615-133640.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
   }
   &.two {
-    background-image: url("/storage/websiteImages/globe-quote.jpg");
+    background-image: url("/storage/websiteImages/TravellingMuse.png");
 
   }
 
@@ -103,7 +103,7 @@
     background-image: url("/storage/websiteImages/canvas-bubbles.png");
   }
   &.five{
-    background-image: url("/storage/websiteImages/vue.jpeg");
+    background-image: url("/storage/websiteImages/CantoneseDictionary.png");
 
   }
   &:hover {

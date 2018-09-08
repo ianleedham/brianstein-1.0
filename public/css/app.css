@@ -10446,7 +10446,7 @@ a.text-dark:focus {
   grid-template-rows: repeat(8, 1fr);
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 20px;
-  background: royalblue;
+  background: gray;
   padding: 1%;
 }
 
@@ -10518,14 +10518,14 @@ a.text-dark:focus {
   -webkit-transition: all ease-in-out 1s;
   transition: all ease-in-out 1s;
   max-height: 100%;
-  background-image: url("/storage/websiteImages/TravellingMuse.png");
+  background-image: url("/storage/websiteImages/Screenshot_20180615-133640.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .portfolio-item.two {
-  background-image: url("/storage/websiteImages/globe-quote.jpg");
+  background-image: url("/storage/websiteImages/TravellingMuse.png");
 }
 
 .portfolio-item.three {
@@ -10538,7 +10538,7 @@ a.text-dark:focus {
 }
 
 .portfolio-item.five {
-  background-image: url("/storage/websiteImages/vue.jpeg");
+  background-image: url("/storage/websiteImages/CantoneseDictionary.png");
 }
 
 .portfolio-item:hover {
@@ -10691,6 +10691,7 @@ a.text-dark:focus {
 
 .vue-dictionary button {
   width: 100%;
+  margin: 0 -1%;
 }
 
 .canvas img {

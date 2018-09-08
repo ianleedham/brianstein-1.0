@@ -50570,7 +50570,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     order: this.order
                 }
             }).then(function (response) {
-                //console.log(response);
+                console.log(response);
                 _this.words = response.data.data;
                 _this.meta = response.data.meta;
             });
@@ -54161,6 +54161,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -54199,11 +54205,15 @@ var render = function() {
           staticClass: "tall portfolio-item  one",
           on: {
             click: function($event) {
-              _vm.scrollToDictionary("#vueDictionary")
+              _vm.scrollToDictionary("#mobDictionary")
             }
           }
         },
-        [_vm._v("\n            Cantonese Dictionary App")]
+        [
+          _c("div", [_vm._v("Cantonese Dictionary mobile App")]),
+          _vm._v(" "),
+          _c("div", [_vm._v("My first real programming project")])
+        ]
       ),
       _vm._v(" "),
       _c(
@@ -54212,17 +54222,17 @@ var render = function() {
           staticClass: "large portfolio-item five",
           on: {
             click: function($event) {
-              _vm.scrollToDictionary("#mobDictionary")
+              _vm.scrollToDictionary("#vueDictionary")
             }
           }
         },
         [
           _c("div", { staticClass: "portfolio-item-title" }, [
-            _vm._v("Cantonese Dictionary")
+            _vm._v("Cantonese Dictionary vue component")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "portfolio-item-body" }, [
-            _vm._v("My first real project in ")
+            _vm._v(" The counterpart to the mobile version")
           ])
         ]
       ),
@@ -54252,9 +54262,7 @@ var render = function() {
         },
         [
           _c("h3", [
-            _vm._v(
-              "\n                canvas  /websiteImages/canvas-bubbles.png\n            "
-            )
+            _vm._v("\n                A canvas element graphic.\n            ")
           ])
         ]
       ),
@@ -54298,7 +54306,9 @@ var render = function() {
         [
           _c("h2", [_vm._v("Cantonese Dictionary in Vue.js")]),
           _vm._v(" "),
-          _c("img", { attrs: { src: "storage/websiteImages/vue.jpeg" } }),
+          _c("img", {
+            attrs: { src: "storage/websiteImages/CantoneseDictionary.png" }
+          }),
           _vm._v(" "),
           _c("p", [
             _vm._v(
@@ -54387,9 +54397,14 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("a", { attrs: { href: "www.dev.travellingmuse.co.uk" } }, [
-          _c("button", [_vm._v("Travellingmuse.co.uk")])
-        ])
+        _c(
+          "a",
+          {
+            staticClass: "row",
+            attrs: { href: "http://dev.travellingmuse.co.uk" }
+          },
+          [_c("button", [_vm._v("Go to Travellingmuse.co.uk")])]
+        )
       ]
     )
   },
@@ -54428,7 +54443,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("li", [
               _vm._v(
-                "\n                        Android studio Java Xml\n                    "
+                "\n                        Android studio using Java, Xml http calls and Sqlite\n                    "
               )
             ]),
             _vm._v(" "),
@@ -54484,7 +54499,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "/vue-dictiona y" } }, [
+    return _c("a", { attrs: { href: "/vue-dictionary" } }, [
       _c("button", [_vm._v("Go to the vue dictionary")])
     ])
   },
@@ -54503,9 +54518,14 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("img", { attrs: { src: "storage/websiteImages/canvas-bubbles.png" } }),
       _vm._v(" "),
-      _c("a", { attrs: { href: "https://canvas.brianstein.co.uk/" } }, [
-        _c("button", [_vm._v("Go to the canvas")])
-      ])
+      _c(
+        "a",
+        {
+          staticClass: "row",
+          attrs: { href: "https://canvas.brianstein.co.uk/" }
+        },
+        [_c("button", [_vm._v("Go to the canvas")])]
+      )
     ])
   },
   function() {
@@ -54526,9 +54546,14 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("img", { attrs: { src: "storage/websiteImages/arcadegame.png" } }),
         _vm._v(" "),
-        _c("a", { attrs: { href: "https://arcade-game.brianstein.co.uk/" } }, [
-          _c("button", [_vm._v("Go to the arcade game")])
-        ])
+        _c(
+          "a",
+          {
+            staticClass: "row",
+            attrs: { href: "https://arcade-game.brianstein.co.uk/" }
+          },
+          [_c("button", [_vm._v("Go to the arcade game")])]
+        )
       ]
     )
   }
