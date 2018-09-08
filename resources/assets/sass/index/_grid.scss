@@ -33,6 +33,9 @@
 
   color: white;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.85);
+  border: #0c5460 solid;
+  box-shadow: black 5px 5px 10px  ;
+  background-color: #0e3950;
 
   &.small {
     grid-row: span 1;
