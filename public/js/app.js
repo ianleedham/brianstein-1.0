@@ -54163,10 +54163,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -54358,12 +54354,6 @@ var staticRenderFns = [
         _c("img", {
           attrs: { src: "storage/websiteImages/TravellingMuse.png" }
         }),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "\n                I am Building this because a friend found wordpress to constricting for all the styles and\n                components they wanted to impliment\n            "
-          )
-        ]),
         _vm._v(" "),
         _c("h4", [
           _vm._v(

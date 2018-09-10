@@ -31,10 +31,6 @@
             <div class="travellingmuse" id="TravellingMuse">
                 <h1>TravellingMuse - ongoing</h1>
                 <img class="" src="storage/websiteImages/TravellingMuse.png">
-                <p>
-                    I am Building this because a friend found wordpress to constricting for all the styles and
-                    components they wanted to impliment
-                </p>
                 <h4>
                     Features of Travelling Muse website:
                 </h4>
