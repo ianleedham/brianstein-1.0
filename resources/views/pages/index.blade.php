@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="jumbotron text-center">
+    <div class=" text-center">
         <h1>Welcome To Briansteins website!</h1>
         <p> This website is designed on the Laravel framework which is a MVC PHP framework which makes it easy
             to produce beautiful secure websites quickly and easily. It does this by providing boiler plate code,
